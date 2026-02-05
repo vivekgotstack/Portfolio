@@ -4,7 +4,7 @@
 
 ```bash
 $ ls
-about.md  stack.md  philosophy.md
+about.md  stack.md  build.info
 
 $ cat about.md
 Final-year B.Tech Computer Science student based in India.
