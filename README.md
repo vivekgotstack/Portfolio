@@ -1,68 +1,93 @@
-Vivek Nigam — Full Stack Developer
+<div align="center">
 
-This repository contains the source code for my personal portfolio website.
+# ⚙️ VIVEK NIGAM
+### Full Stack Developer • Backend-leaning • Production-minded
+Code over noise. Systems over gimmicks.
 
-The goal of this project is simple: present my work, skills, and technical focus clearly and professionally, without gimmicks. The site is designed to reflect how I think about software—structured, modern, and pragmatic.
+</div>
 
-About Me
+---
 
-I’m a final-year B.Tech Computer Science student based in India, focused on full stack web development. My primary interests are backend systems, clean frontend architecture, and building reliable, production-grade applications.
+## ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-I work primarily with Java and Spring Boot on the backend, and React with modern tooling on the frontend. I care about correctness, maintainability, and understanding why systems behave the way they do—not just making things work.
+## 🧠 ABOUT
 
-Tech Stack
+```text
+Final-year B.Tech Computer Science student based in India.
+Focused on building software that behaves correctly
+under real constraints — not demo conditions.
 
+I care about:
+
+backend systems that fail predictably instead of mysteriously
+
+frontend architecture that scales without turning hostile
+
+understanding why things work, not just that they work
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+🛠️ STACK
 Frontend
-
 React
-
 TypeScript
-
 Next.js (App Router)
-
 Tailwind CSS
-
 Backend & Databases
-
 Java
-
 Spring Boot
-
 MySQL
-
 PostgreSQL
+Engineering Concerns
+SEO correctness (metadata, Open Graph, structured data)
+Theme-aware & accessibility-aware UI
+Error boundaries & defensive rendering
 
-Other
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-Modern SEO practices (metadata, Open Graph, structured data)
+🎯 PROJECT INTENT
 
-Theme and accessibility-aware UI
+This portfolio is built like a real application, not a showcase toy.
 
-Error boundaries and defensive rendering
+Emphasis on:
 
-Project Focus
+clean component boundaries
 
-This portfolio emphasizes:
+predictable layout and theming
 
-Clean component structure
+production-oriented Next.js patterns
 
-SEO correctness and metadata handling
+minimal but deliberate design decisions
 
-Consistent theming and layout behavior
+There is:
 
-Production-oriented Next.js patterns
+❌ no framework abuse
 
-Minimal but deliberate design
+❌ no decorative animation
 
-There is no unnecessary animation, framework abuse, or overengineering. The codebase is meant to be readable and extensible.
+❌ no overengineering for screenshots
 
-Status
+Readability and extensibility come first.
 
-This project is actively maintained and evolves alongside my skills and experience. As I grow as an engineer, this portfolio grows with me.
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-Contact
+🚧 STATUS
++ Actively maintained
++ Evolves with my skill level
+- Not a finished product
 
-If you’re interested in my work or want to discuss opportunities, you can reach me via the contact links provided on the website.
+As I grow as an engineer, this codebase changes with me.
 
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+📡 CONTACT
+Opportunities, collaboration, or technical discussion —
+reach out via the links on the website.
+```
+<div align="center">
 © Vivek Nigam
 Full Stack Developer
+</div>
+<br/>
+<br/>
+<div align="center"><i>If it’s here, it exists for a reason.</i></div>
