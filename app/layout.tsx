@@ -82,17 +82,21 @@ export default function RootLayout({
       <head>
         <StructuredData />
       </head>
-      <body className="font-sans min-h-dvh bg-grid text-foreground">
-        <ErrorBoundary>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <div className="min-h-dvh">{children}</div>
-          </ThemeProvider>
-        </ErrorBoundary>
+      <body>
+        <div className="font-sans min-h-dvh bg-grid text-foreground">
+          <StructuredData />
+
+          <ErrorBoundary>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <div className="min-h-dvh">{children}</div>
+            </ThemeProvider>
+          </ErrorBoundary>
+        </div>
       </body>
     </html>
   );
