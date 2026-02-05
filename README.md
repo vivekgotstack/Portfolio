@@ -15,9 +15,8 @@ Frontend:  React, TypeScript, Next.js, Tailwind
 Backend:   Java, Spring Boot
 Database:  MySQL, PostgreSQL
 
-$ cat philosophy.md
-No gimmicks.
-No framework worship.
-No accidental code.
+$ cat build.info
+target: production
+constraints: real-world
 
 connection closed by remote host
