@@ -129,6 +129,21 @@ export default function Page() {
 
                 <div className="space-y-2">
                   <ProjectListItem
+                    title="AnimePhillic"
+                    links={[
+                      {
+                        label: "live ↗",
+                        href: "https://anime-phillic.vercel.app/",
+                      },
+                    ]}
+                    bullets={[
+                      "Java full-stack application for browsing and exploring anime content.",
+                      "Built clean UI components with a focus on usability.",
+                      "Integrated external APIs for dynamic content rendering.",
+                    ]}
+                    tags={["React", "TypeScript", "API Integration", "Clerk", "+ more"]}
+                  />
+                  <ProjectListItem
                     title="WanderWise"
                     links={[
                       {
@@ -142,22 +157,6 @@ export default function Page() {
                       "Designed for performance and mobile-first usage.",
                     ]}
                     tags={["React", "PWA", "TypeScript", "Firebase", "Shadcn UI", "+ more"]}
-                  />
-
-                  <ProjectListItem
-                    title="AnimePhillic"
-                    links={[
-                      {
-                        label: "live ↗",
-                        href: "https://anime-phillic.vercel.app/",
-                      },
-                    ]}
-                    bullets={[
-                      "Frontend application for browsing and exploring anime content.",
-                      "Built clean UI components with a focus on usability.",
-                      "Integrated external APIs for dynamic content rendering.",
-                    ]}
-                    tags={["React", "TypeScript", "API Integration", "Clerk", "+ more"]}
                   />
                 </div>
               </section>
