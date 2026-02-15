@@ -100,7 +100,7 @@ export default function Page() {
                     <a href="mailto:vivekni1224@gmail.com">
                       <Mail className="h-4 w-4" />
                     </a>
-                    <a href="https://github.com/vivekgotstack">
+                    <a href="https://github.com/">
                       <Github className="h-4 w-4" />
                     </a>
                     <a href="https://www.linkedin.com/in/randomvivek/">
