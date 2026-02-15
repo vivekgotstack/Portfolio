@@ -106,7 +106,7 @@ export default function Page() {
                     <a href="https://www.linkedin.com/in/randomvivek/">
                       <Linkedin className="h-4 w-4" />
                     </a>
-                    <a href="https://x.com/vivekgotstack">
+                    <a href="https://x.com/">
                       <Twitter className="h-4 w-4" />
                     </a>
                   </div>
