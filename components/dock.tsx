@@ -12,9 +12,9 @@ export function Dock() {
     {
       icon: Twitter,
       label: "Twitter",
-      href: "https://x.com/vivekgotstack",
+      href: "https://x.com/",
     },
-    { icon: Github, label: "GitHub", href: "https://github.com/vivekgotstack" },
+    { icon: Github, label: "GitHub", href: "https://github.com/" },
     {
       icon: Linkedin,
       label: "LinkedIn",
