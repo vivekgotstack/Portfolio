@@ -89,7 +89,7 @@ export default function Page() {
                   <div className="mt-4 flex flex-wrap items-center gap-2">
                     <Button size="sm" asChild>
                       <a
-                        href="https://drive.google.com/file/d/17dtJxAWSzLYbhqEBiZKF79ZhsgBl_2yQ/view?usp=drivesdk"
+                        href="https://drive.google.com/file/d/1XEyTy30CopzqYtc3LwvYt--gKO7U_rZf/view?usp=drivesdk"
                         target="_blank"
                         rel="noreferrer"
                       >
