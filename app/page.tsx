@@ -129,6 +129,22 @@ export default function Page() {
 
                 <div className="space-y-2">
                   <ProjectListItem
+                    title="WanderWise"
+                    links={[
+                      {
+                        label: "live ↗",
+                        href: "https://wanderwise-lime.vercel.app/",
+                      },
+                    ]}
+                    bullets={[
+                      "Java Full stack Progressive Web App focused on showcasing a simulation of travel planning and exploration.",
+                      "Sliding Window pattern followed to maintain DB data automatically and Spring Rest with Jpa"
+                      "Responsive UI with offline-ready behavior using PWA principles.",
+                      "Designed for performance and mobile-first usage.",
+                    ]}
+                    tags={["React", "PWA", "TypeScript", "Firebase", "Shadcn UI", "+ more"]}
+                  />
+                  <ProjectListItem
                     title="AnimePhillic"
                     links={[
                       {
@@ -142,21 +158,6 @@ export default function Page() {
                       "Integrated external APIs for dynamic content rendering.",
                     ]}
                     tags={["React", "TypeScript", "API Integration", "Clerk", "+ more"]}
-                  />
-                  <ProjectListItem
-                    title="WanderWise"
-                    links={[
-                      {
-                        label: "live ↗",
-                        href: "https://wanderwise-lime.vercel.app/",
-                      },
-                    ]}
-                    bullets={[
-                      "Frontend Progressive Web App focused on travel planning and exploration.",
-                      "Responsive UI with offline-ready behavior using PWA principles.",
-                      "Designed for performance and mobile-first usage.",
-                    ]}
-                    tags={["React", "PWA", "TypeScript", "Firebase", "Shadcn UI", "+ more"]}
                   />
                 </div>
               </section>
