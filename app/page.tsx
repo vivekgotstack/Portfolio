@@ -138,7 +138,7 @@ export default function Page() {
                     ]}
                     bullets={[
                       "Java Full stack Progressive Web App focused on showcasing a simulation of travel planning and exploration.",
-                      "Sliding Window pattern followed to maintain DB data automatically and Spring Rest with Jpa"
+                      "Sliding Window pattern followed to maintain DB data automatically and Spring Rest with Jpa",
                       "Responsive UI with offline-ready behavior using PWA principles.",
                       "Designed for performance and mobile-first usage.",
                     ]}
