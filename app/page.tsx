@@ -130,18 +130,17 @@ export default function Page() {
                     company="Kraftors AI&R"
                     role="Web Development Trainee"
                     period="April 2026 – Present"
-                    summary={
-                      <>
-                        <p>Worked on the production website https://fashionxglobal.com, contributing to frontend performance and UX improvements:</p>
+                    summary={`Worked on the production website https://fashionxglobal.com, contributing to frontend performance and UX improvements:
 
-                         <ul className="list-disc pl-5 space-y-1">
-                        <li>Built an interactive video showcase section with product-switching “bubble” controls, allowing users to navigate featured items without closing the active video modal.</li>
-                        <li>Fixed a broken price filter logic where minimum values failed to initialize, restoring correct filtering behavior.</li>
-                        <li>Improved page load performance by implementing image prefetching in Next.js.</li>
-                        <li>Documented APIs across multiple pages to clarify data flow and support future development.</li>
-                        <li>Delivered production-ready features and pushed directly to the main branch.</li>
-                        </ul>
-                      </>
+                        • Built an interactive video showcase section with product-switching “bubble” controls, allowing users to navigate featured items without closing the active video modal.
+
+                        • Fixed a broken price filter logic where minimum values failed to initialize, restoring correct filtering behavior.
+
+                        • Improved page load performance by implementing image prefetching in Next.js.
+
+                        • Documented APIs across multiple pages to clarify data flow and support future development.
+
+                        • Delivered production-ready features and pushed directly to the main branch.`
                     }
                   <WorkItem
                     company="TrainX"
