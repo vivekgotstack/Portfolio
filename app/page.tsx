@@ -130,18 +130,12 @@ export default function Page() {
                     company="Kraftors AI&R"
                     role="Web Development Trainee"
                     period="April 2026 – Present"
-                    summary={`Worked on the production website https://fashionxglobal.com, contributing to frontend performance and UX improvements:
-
-                        • Built an interactive video showcase section with product-switching “bubble” controls, allowing users to navigate featured items without closing the active video modal.
-
-                        • Fixed a broken price filter logic where minimum values failed to initialize, restoring correct filtering behavior.
-
-                        • Improved page load performance by implementing image prefetching in Next.js.
-
-                        • Documented APIs across multiple pages to clarify data flow and support future development.
-
-                        • Delivered production-ready features and pushed directly to the main branch.`
-                    }
+                    summary="Worked on FashionX Global \n
+                          Improved homepage video UX by adding interactive product navigation within the video modal, increasing engagement and reducing user friction.\n
+                          Fixed a critical price filter initialization bug, ensuring accurate and consistent filtering behavior.\n
+                          Enhanced performance using image prefetching in Next.js, reducing perceived load time.\n
+                          Documented APIs across multiple modules, improving code maintainability and onboarding clarity.\n
+                          Contributed tested changes directly to the production codebase."
                   <WorkItem
                     company="TrainX"
                     role="Apprentice"
