@@ -130,12 +130,7 @@ export default function Page() {
                     company="Kraftors AI&R"
                     role="Web Development Trainee"
                     period="April 2026 – Present"
-                    summary="Worked on FashionX Global \n
-                          Improved homepage video UX by adding interactive product navigation within the video modal, increasing engagement and reducing user friction.\n
-                          Fixed a critical price filter initialization bug, ensuring accurate and consistent filtering behavior.\n
-                          Enhanced performance using image prefetching in Next.js, reducing perceived load time.\n
-                          Documented APIs across multiple modules, improving code maintainability and onboarding clarity.\n
-                          Contributed tested changes directly to the production codebase."
+                    summary="Worked on FashionX Global, where I improved homepage video UX with interactive product navigation, fixed a price filter initialization bug, optimized performance using image prefetching in Next.js, documented APIs for better maintainability, and contributed tested changes to the production codebase."
                     />
                   <WorkItem
                     company="TrainX"
