@@ -130,13 +130,19 @@ export default function Page() {
                     company="Kraftors AI&R"
                     role="Web Development Trainee"
                     period="April 2026 – Present"
-                    summary="At Kraftors, I worked on one of their major project: https://fashionxglobal.com. While my training I did:
-                        Enhanced the homepage video section by implementing interactive product “bubble” navigation, enabling users to switch featured items without closing the video popup, improving engagement and user flow.
-                        Resolved a critical issue in the price filter where minimum values were not initializing correctly, ensuring accurate and reliable filtering behavior.
-                        Optimized page load performance using image prefetching techniques in Next.js, reducing perceived load time and improving user experience.
-                        Documented APIs across multiple pages, providing clear reference for data flow and integration, which improved maintainability and team onboarding efficiency.
-                        Contributed directly to the production codebase by pushing stable, tested changes to the main branch."
-                  />
+                    summary={
+                      <>
+                        <p>Worked on the production website https://fashionxglobal.com, contributing to frontend performance and UX improvements:</p>
+
+                         <ul className="list-disc pl-5 space-y-1">
+                        <li>Built an interactive video showcase section with product-switching “bubble” controls, allowing users to navigate featured items without closing the active video modal.</li>
+                        <li>Fixed a broken price filter logic where minimum values failed to initialize, restoring correct filtering behavior.</li>
+                        <li>Improved page load performance by implementing image prefetching in Next.js.</li>
+                        <li>Documented APIs across multiple pages to clarify data flow and support future development.</li>
+                        <li>Delivered production-ready features and pushed directly to the main branch.</li>
+                        </ul>
+                      </>
+                    }
                   <WorkItem
                     company="TrainX"
                     role="Apprentice"
