@@ -136,6 +136,7 @@ export default function Page() {
                           Enhanced performance using image prefetching in Next.js, reducing perceived load time.\n
                           Documented APIs across multiple modules, improving code maintainability and onboarding clarity.\n
                           Contributed tested changes directly to the production codebase."
+                    />
                   <WorkItem
                     company="TrainX"
                     role="Apprentice"
