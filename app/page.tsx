@@ -130,7 +130,12 @@ export default function Page() {
                     company="Kraftors AI&R"
                     role="Web Development Trainee"
                     period="April 2026 – Present"
-                    summary="Worked on full-stack features using Next.js, Java, Spring Boot, and Nest.js. Assisted in building REST APIs and improving performance of the FashionXGlobal site while collaborating with the team."
+                    summary="At Kraftors, I worked on one of their major project: https://fashionxglobal.com. While my training I did:
+                        Enhanced the homepage video section by implementing interactive product “bubble” navigation, enabling users to switch featured items without closing the video popup, improving engagement and user flow.
+                        Resolved a critical issue in the price filter where minimum values were not initializing correctly, ensuring accurate and reliable filtering behavior.
+                        Optimized page load performance using image prefetching techniques in Next.js, reducing perceived load time and improving user experience.
+                        Documented APIs across multiple pages, providing clear reference for data flow and integration, which improved maintainability and team onboarding efficiency.
+                        Contributed directly to the production codebase by pushing stable, tested changes to the main branch."
                   />
                   <WorkItem
                     company="TrainX"
