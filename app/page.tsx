@@ -7,6 +7,7 @@ import { TimeCounter } from "@/components/time-counter";
 
 import { ProjectListItem } from "@/components/project-list-item";
 import { AchievementItem } from "@/components/achievement-item";
+import { WorkItem } from "@/components/work-item";
 import { Dock } from "@/components/dock";
 import { SkillsDraggable } from "@/components/skills-draggable";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -116,12 +117,30 @@ export default function Page() {
 
             <FadeInText>
               <section className="p-4 text-[13px] leading-6 text-neutral-600 dark:text-neutral-300">
-                I’m a final-year Computer Science student who enjoys building
-                reliable, clean, and scalable web applications. I work mainly
-                with Java, Spring Boot, React, and modern databases, and I like
-                understanding systems end-to-end rather than just writing UI.
+                I’m a Computer Science graduate focused on building reliable, clean, and scalable web applications. I specialize in Java, Spring Boot, React, and modern databases, with an emphasis on designing and understanding systems end-to-end.
               </section>
             </FadeInText>
+
+            <SlideUp>
+              <section id="experience" className="mt-6 p-4">
+                <h3 className="text-sm font-semibold mb-3">Experience</h3>
+
+                <div className="space-y-2">
+                  <WorkItem
+                    company="Kraftors AI&R"
+                    role="Web Development Trainee"
+                    period="April 2026 – Present"
+                    summary="Worked on full-stack features using Next.js, Java, Spring Boot, and Nest.js. Assisted in building REST APIs and improving performance of the FashionXGlobal site while collaborating with the team."
+                  />
+                  <WorkItem
+                    company="TrainX"
+                    role="Apprentice"
+                    period="Sept 2025 – Dec 2025"
+                    summary="Structured, on-site apprentice-style training program for final-year students, covering Java, Data Structures, and Database Management. Delivered hands-on sessions and real-world projects to enhance practical skills and industry readiness."
+                  />
+                </div>
+              </section>
+            </SlideUp>
 
             <SlideUp>
               <section id="projects" className="mt-6 p-4">
