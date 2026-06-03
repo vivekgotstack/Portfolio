@@ -152,7 +152,7 @@ export default function Page() {
                     links={[
                              {
                               label: "live ↗",
-                              href: "https://your-cointracker-live-link.vercel.app/",
+                              href: "https://cointracker-pwa.vercel.app/",
                               },
                     ]}
                      bullets={[
@@ -185,7 +185,7 @@ export default function Page() {
                       "Responsive UI with offline-ready behavior using PWA principles.",
                       "Designed for performance and mobile-first usage.",
                     ]}
-                    tags={["React", "PWA", "TypeScript", "Firebase", "Shadcn UI", "+ more"]}
+                    tags={["Spring Boot", "Spring Data JPA", "React", "PWA", "TypeScript", "Firebase Oauth", "Rest API", "+ more"]}
                   />
                   <ProjectListItem
                     title="AnimePhillic"
