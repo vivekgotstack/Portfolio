@@ -188,20 +188,21 @@ export default function Page() {
                     tags={["Spring Boot", "Spring Data JPA", "React", "PWA", "TypeScript", "Firebase Oauth", "Rest API", "+ more"]}
                   />
                   <ProjectListItem
-                    title="AnimePhillic"
+                    title="Email ReplyCraft"
                     links={[
-                      {
-                        label: "live ↗",
-                        href: "https://anime-phillic.vercel.app/",
-                      },
-                    ]}
+                    {
+                      label: "live ↗",
+                      href: "https://email-reply-craft.vercel.app/",
+                    },
+                  ]}
                     bullets={[
-                      "Java full-stack application for browsing and exploring anime content.",
-                      "Built clean UI components with a focus on usability.",
-                      "Integrated external APIs for dynamic content rendering.",
+                        "Java Full stack AI-powered email reply generator with Spring Boot backend and React TypeScript frontend.",
+                        "Implemented JWT authentication, refresh token flow, protected APIs, PostgreSQL persistence, and generation history.",
+                         "Integrated OpenRouter AI API to generate polished replies with selectable tone support.",
+                          "Built Gmail browser extension integration to generate replies directly inside Gmail reply boxes.",
                     ]}
-                    tags={["React", "TypeScript", "API Integration", "Clerk", "+ more"]}
-                  />
+                        tags={["Spring Boot", "React", "TypeScript", "PostgreSQL", "JWT", "Chrome Extension", "+ more"]}
+                    />
                 </div>
               </section>
             </SlideUp>
