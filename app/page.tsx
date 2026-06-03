@@ -148,6 +148,30 @@ export default function Page() {
 
                 <div className="space-y-2">
                   <ProjectListItem
+                    title="CoinTracker"
+                    links={[
+                             {
+                              label: "live ↗",
+                              href: "https://your-cointracker-live-link.vercel.app/",
+                              },
+                    ]}
+                     bullets={[
+                              "Java full-stack finance tracking app for managing income, expenses, categories, and transaction history.",
+                              "Built with Spring Boot REST APIs, JWT authentication, PostgreSQL, JPA/Hibernate, pagination, filtering, and dashboard analytics.",
+                              "Includes protected user-specific data access, total income/expense calculation, recent transactions, and clean layered backend architecture.",
+                              "Responsive React + TypeScript frontend designed for practical personal finance tracking.",
+                              ]}
+                      tags={[
+                              "Spring Boot",
+                              "React",
+                              "TypeScript",
+                              "PostgreSQL",
+                              "JWT",
+                              "JPA",
+                              "+ more",
+                        ]}
+                  />
+                  <ProjectListItem
                     title="WanderWise"
                     links={[
                       {
