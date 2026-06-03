@@ -129,7 +129,7 @@ export default function Page() {
                   <WorkItem
                     company="Kraftors AI&R"
                     role="Web Development Trainee"
-                    period="April 2026 – Present"
+                    period="April 2026 – May 2026"
                     summary="Worked on FashionX Global, where I improved homepage video UX with interactive product navigation, fixed a price filter initialization bug, optimized performance using image prefetching in Next.js, documented APIs for better maintainability, and contributed tested changes to the production codebase."
                     />
                   <WorkItem
@@ -172,22 +172,6 @@ export default function Page() {
                         ]}
                   />
                   <ProjectListItem
-                    title="WanderWise"
-                    links={[
-                      {
-                        label: "live ↗",
-                        href: "https://wanderwise-lime.vercel.app/",
-                      },
-                    ]}
-                    bullets={[
-                      "Java Full stack Progressive Web App focused on showcasing a simulation of travel planning and exploration.",
-                      "Sliding Window pattern followed to maintain DB data automatically and Spring Rest with Jpa",
-                      "Responsive UI with offline-ready behavior using PWA principles.",
-                      "Designed for performance and mobile-first usage.",
-                    ]}
-                    tags={["Spring Boot", "Spring Data JPA", "React", "PWA", "TypeScript", "Firebase Oauth", "Rest API", "+ more"]}
-                  />
-                  <ProjectListItem
                     title="Email ReplyCraft"
                     links={[
                     {
@@ -203,6 +187,22 @@ export default function Page() {
                     ]}
                         tags={["Spring Boot", "React", "TypeScript", "PostgreSQL", "JWT", "Chrome Extension", "+ more"]}
                     />
+                  <ProjectListItem
+                    title="WanderWise"
+                    links={[
+                      {
+                        label: "live ↗",
+                        href: "https://wanderwise-lime.vercel.app/",
+                      },
+                    ]}
+                    bullets={[
+                      "Java Full stack Progressive Web App focused on showcasing a simulation of travel planning and exploration.",
+                      "Sliding Window pattern followed to maintain DB data automatically and Spring Rest with Jpa",
+                      "Responsive UI with offline-ready behavior using PWA principles.",
+                      "Designed for performance and mobile-first usage.",
+                    ]}
+                    tags={["Spring Boot", "Spring Data JPA", "React", "PWA", "TypeScript", "Firebase Oauth", "Rest API", "+ more"]}
+                  />
                 </div>
               </section>
             </SlideUp>
