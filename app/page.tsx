@@ -69,7 +69,7 @@ export default function Page() {
 
                 <FadeInText>
                   <p className="text-xs text-neutral-600 dark:text-neutral-300">
-                    Final-year B.Tech CSE student · Full Stack Developer
+                    B.Tech CSE graduate · Full Stack Developer
                   </p>
                   <div className="text-xs text-neutral-600 dark:text-neutral-300">
                     <Typewriter
