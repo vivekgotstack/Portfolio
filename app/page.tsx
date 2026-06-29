@@ -130,22 +130,7 @@ export default function Page() {
                     company="UP24Network"
                     role="Web Developer"
                     period="June 2026 – Present"
-                    summary="I recently completed deploying my full-stack e-commerce project ModaStitch to a production VPS environment for the first time.
-This was a major step beyond local development and PaaS deployments.
-- What I implemented:
-Deployed Spring Boot backend (Java 21) on a Linux VPS
-Built and packaged production-ready JAR using Maven
-Configured secure server environment (Ubuntu VPS)
-Integrated backend with Neon PostgreSQL database
-Set up environment-based configuration for production
-Managed server-level deployment instead of platform-based hosting
-- Key learnings:
-Linux VPS setup and server management basics
-Java application deployment lifecycle in production
-Environment configuration and database connectivity in real-world setup
-Moving from PaaS simplicity to full infrastructure control
-- Tech Stack:
-Java, Spring Boot, Spring Security, JWT, JPA, PostgreSQL (Neon DB), Maven, Ubuntu VPS"
+                    summary="Deployed my full-stack e-commerce project ModaStitch to production with a fully hosted setup using SSH-managed Ubuntu VPS and NGINX. The Spring Boot backend (Java 21) was packaged with Maven, deployed on the server, and configured behind NGINX, while the frontend (Next.js) is hosted on Vercel. The backend is connected to a Neon PostgreSQL database with proper environment-based production configuration, completing a full real-world deployment pipeline.\nTech stack: Java, Spring Boot, Spring Security, JWT, JPA, PostgreSQL (Neon DB), Maven, Ubuntu VPS (SSH + NGINX), Next.js (Vercel)."
                     />
                   <WorkItem
                     company="TrainX"
