@@ -130,7 +130,8 @@ export default function Page() {
                     company="UP24Network"
                     role="Web Developer"
                     period="June 2026 – Present"
-                    summary="Deployed my full-stack e-commerce project ModaStitch to production with a fully hosted setup using SSH-managed Ubuntu VPS and NGINX. The Spring Boot backend (Java 21) was packaged with Maven, deployed on the server, and configured behind NGINX, while the frontend (Next.js) is hosted on Vercel. The backend is connected to a Neon PostgreSQL database with proper environment-based production configuration, completing a full real-world deployment pipeline.\nTech stack: Java, Spring Boot, Spring Security, JWT, JPA, PostgreSQL (Neon DB), Maven, Ubuntu VPS (SSH + NGINX), Next.js (Vercel)."
+                    summary="Deployed my full-stack e-commerce project ModaStitch to production with a fully hosted setup using SSH-managed Ubuntu VPS and NGINX. The Spring Boot backend (Java 21) was packaged with Maven, deployed on the server, and configured behind NGINX, while the frontend (Next.js) is hosted on Vercel. The backend is connected to a Neon PostgreSQL database with proper environment-based production configuration, completing a full real-world deployment pipeline.
+                    Tech stack: Java, Spring Boot, Spring Security, JWT, JPA, PostgreSQL (Neon DB), Maven, Ubuntu VPS (SSH + NGINX), Next.js (Vercel)."
                     />
                   <WorkItem
                     company="TrainX"
