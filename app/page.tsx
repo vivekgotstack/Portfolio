@@ -101,13 +101,13 @@ export default function Page() {
                     <a href="mailto:vivekni1224@gmail.com">
                       <Mail className="h-4 w-4" />
                     </a>
-                    <a href="https://github.com/">
+                    <a href="https://github.com/vivekgotstack">
                       <Github className="h-4 w-4" />
                     </a>
                     <a href="https://www.linkedin.com/in/randomvivek/">
                       <Linkedin className="h-4 w-4" />
                     </a>
-                    <a href="https://x.com/">
+                    <a href="https://x.com/vivekgotstack">
                       <Twitter className="h-4 w-4" />
                     </a>
                   </div>
