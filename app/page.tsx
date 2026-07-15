@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { TextShimmer } from "@/components/ui/text-shimmer";
 import { Typewriter } from "@/components/ui/typewriter";
 import { TimeCounter } from "@/components/time-counter";
+import { ContactForm } from "@/components/contact-form";
 
 import { ProjectListItem } from "@/components/project-list-item";
 import { AchievementItem } from "@/components/achievement-item";
@@ -33,6 +34,7 @@ export default function Page() {
             <a href="#projects">projects</a>
             <a href="#skills">skills</a>
             <a href="#education">education</a>
+            <a href="#contact">contact</a>
             <ThemeToggle />
           </div>
         </nav>
@@ -229,6 +231,10 @@ export default function Page() {
                   description="Secondary & Higher Secondary Education"
                 />
               </section>
+            </SlideUp>
+
+            <SlideUp>
+              <ContactForm />
             </SlideUp>
           </div>
         </article>
