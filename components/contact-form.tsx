@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { ArrowUpRight, Check, LoaderCircle } from "lucide-react";
+import { ArrowUpRight, Check, LoaderCircle, Radio } from "lucide-react";
 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
@@ -11,11 +11,7 @@ export function ContactForm() {
     const form = event.currentTarget;
     setStatus("sending");
     try {
-      const response = await fetch("https://formsubmit.co/ajax/vivekgotstack@gmail.com", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(Object.fromEntries(new FormData(form))),
-      });
+      const response = await fetch("/api/contact", { method: "POST", body: new FormData(form) });
       if (!response.ok) throw new Error();
       form.reset();
       setStatus("sent");
@@ -24,40 +20,38 @@ export function ContactForm() {
     }
   }
 
-  const control = "w-full border-b border-neutral-200 bg-transparent py-3 text-sm outline-none transition placeholder:text-neutral-400 focus:border-neutral-900 dark:border-neutral-800 dark:focus:border-neutral-100";
+  const input = "w-full border-b border-white/15 bg-transparent py-3.5 text-sm text-white outline-none transition placeholder:text-white/25 focus:border-[#c7ff38]";
 
   return (
-    <section id="contact" className="relative mt-6 overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-50 p-5 dark:border-neutral-800 dark:bg-neutral-900/40 md:p-7">
-      <div className="pointer-events-none absolute -right-16 -top-20 h-52 w-52 rounded-full bg-blue-500/10 blur-3xl" />
+    <form onSubmit={submit} className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] p-6 backdrop-blur-xl sm:p-9">
+      <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-[#c7ff38]/10 blur-3xl" />
       <div className="relative">
-        <div className="mb-7 flex items-start justify-between gap-4">
+        <div className="mb-10 flex items-start justify-between">
           <div>
-            <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.22em] text-neutral-500">Let&apos;s build</p>
-            <h3 className="text-xl font-semibold tracking-tight">Have something in mind?</h3>
-            <p className="mt-2 max-w-sm text-xs leading-5 text-neutral-500 dark:text-neutral-400">Drop the idea here. I&apos;ll reply directly to your inbox.</p>
+            <p className="mb-3 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.24em] text-[#c7ff38]"><Radio className="h-3 w-3 animate-pulse" /> Secure transmission</p>
+            <h3 className="text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">Initialize a conversation.</h3>
           </div>
-          <span className="mt-1 h-2.5 w-2.5 shrink-0 animate-pulse rounded-full bg-emerald-500 shadow-[0_0_18px_rgba(16,185,129,.65)]" />
+          <span className="font-mono text-[10px] text-white/30">MSG_001</span>
         </div>
 
-        <form onSubmit={submit} className="space-y-5">
-          <input type="hidden" name="_subject" value="New portfolio message" />
-          <div className="grid gap-5 sm:grid-cols-2">
-            <label className="text-[11px] font-medium text-neutral-500">NAME<input className={control} name="name" placeholder="Your name" required /></label>
-            <label className="text-[11px] font-medium text-neutral-500">EMAIL<input className={control} name="email" type="email" placeholder="you@email.com" required /></label>
-          </div>
-          <label className="block text-[11px] font-medium text-neutral-500">MESSAGE<textarea className={`${control} min-h-28 resize-y`} name="message" placeholder="Tell me about the idea, role, or project…" required /></label>
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <button disabled={status === "sending"} className="group inline-flex h-11 items-center justify-between gap-8 rounded-full bg-neutral-950 px-5 text-xs font-medium text-white transition hover:-translate-y-0.5 hover:shadow-lg disabled:opacity-60 dark:bg-white dark:text-neutral-950">
-              {status === "sending" ? "Sending" : status === "sent" ? "Message sent" : "Send message"}
-              {status === "sending" ? <LoaderCircle className="h-4 w-4 animate-spin" /> : status === "sent" ? <Check className="h-4 w-4" /> : <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />}
-            </button>
-            <p aria-live="polite" className={`text-xs ${status === "error" ? "text-red-500" : "text-emerald-600 dark:text-emerald-400"}`}>
-              {status === "sent" && "Thanks — I’ll get back to you soon."}
-              {status === "error" && "Couldn’t send. Email me at vivekgotstack@gmail.com"}
-            </p>
-          </div>
-        </form>
+        <input type="text" name="company" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+        <div className="grid gap-7 sm:grid-cols-2">
+          <label className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/40">Your name<input className={input} name="name" placeholder="Jane Smith" required maxLength={80} /></label>
+          <label className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/40">Email channel<input className={input} name="email" type="email" placeholder="jane@company.com" required maxLength={120} /></label>
+        </div>
+        <label className="mt-7 block font-mono text-[10px] uppercase tracking-[0.18em] text-white/40">The brief<textarea className={`${input} min-h-32 resize-y`} name="message" placeholder="Project, role, wild idea — send it over…" required maxLength={4000} /></label>
+
+        <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+          <button disabled={status === "sending"} className="group inline-flex h-13 items-center justify-between gap-10 rounded-full bg-[#c7ff38] px-6 text-[11px] font-bold uppercase tracking-[0.12em] text-[#080a08] transition hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(199,255,56,.2)] disabled:opacity-60">
+            {status === "sending" ? "Transmitting" : status === "sent" ? "Transmission complete" : "Send transmission"}
+            {status === "sending" ? <LoaderCircle className="h-4 w-4 animate-spin" /> : status === "sent" ? <Check className="h-4 w-4" /> : <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />}
+          </button>
+          <p role="status" aria-live="polite" className={`text-xs ${status === "error" ? "text-red-400" : "text-[#c7ff38]"}`}>
+            {status === "sent" && "Received. I’ll reply to your inbox."}
+            {status === "error" && "Transmission failed — email vivekgotstack@gmail.com"}
+          </p>
+        </div>
       </div>
-    </section>
+    </form>
   );
 }
