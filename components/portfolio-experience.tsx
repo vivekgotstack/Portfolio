@@ -5,28 +5,37 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, ArrowUpRight, Github, Linkedin, Mail, MapPin, MoveRight, Terminal, Zap } from "lucide-react";
 import { ContactForm } from "./contact-form";
+import { BrandMark } from "./brand-mark";
 
 const projects = [
   {
     n: "01", title: "ModaStitch", type: "Production commerce system", color: "#c7ff38",
     copy: "A full-stack fashion platform engineered from database to deployment: secure JWT flows, Spring Boot services, Neon PostgreSQL, and an NGINX-managed Ubuntu VPS.",
-    tags: ["Java 21", "Spring Boot", "PostgreSQL", "Next.js", "NGINX"], href: "https://modastitch.com",
+    tags: ["Java 21", "Spring Boot", "PostgreSQL", "Next.js", "NGINX"], href: "https://modastitch.com", media: [],
   },
   {
-    n: "02", title: "CoinTracker", type: "Finance intelligence PWA", color: "#79e8ff",
-    copy: "Personal finance infrastructure with protected user data, analytical dashboards, paginated transaction history, filtering, and offline-ready mobile UX.",
-    tags: ["Spring Security", "React", "TypeScript", "JPA", "PWA"], href: "https://cointracker-pwa.vercel.app/",
+    n: "02", title: "CoinTracker", type: "Finance intelligence platform", color: "#79e8ff",
+    copy: "Personal finance infrastructure with protected user data, analytical dashboards, paginated transaction history, filtering, and a focused responsive interface.",
+    tags: ["Spring Security", "React", "TypeScript", "JPA", "Analytics"], href: "https://cointracker-pwa.vercel.app/",
+    media: ["/projects/cointracker-analytics.png", "/projects/cointracker-dashboard.png"],
   },
   {
     n: "03", title: "Email ReplyCraft", type: "AI productivity platform", color: "#b49cff",
     copy: "AI-assisted email writing with selectable tone, generation history, refresh-token auth, and a browser extension that works directly inside Gmail.",
     tags: ["OpenRouter", "Chrome Extension", "JWT", "React", "PostgreSQL"], href: "https://email-reply-craft.vercel.app/",
+    media: ["/projects/replycraft-extension.png", "/projects/replycraft-generator.png", "/projects/replycraft-login.png"],
   },
   {
     n: "04", title: "WanderWise", type: "Travel planning experience", color: "#ff9f7a",
-    copy: "A responsive travel discovery PWA pairing a polished mobile-first interface with a Spring data layer and Firebase authentication.",
-    tags: ["Spring Data", "Firebase", "React", "REST API", "PWA"], href: "https://wanderwise-lime.vercel.app/",
+    copy: "A responsive travel discovery platform pairing a polished interface with a Spring data layer, Firebase authentication, and real booking flows.",
+    tags: ["Spring Data", "Firebase", "React", "REST API", "Responsive UI"], href: "https://wanderwise-lime.vercel.app/",
+    media: ["/projects/wanderwise-buses.png", "/projects/wanderwise-flights.png"],
   },
+];
+
+const experience = [
+  { company: "UP24Network", role: "Web Developer", period: "2026 — NOW", text: "Shipping a full-stack commerce platform to production across Vercel, Ubuntu VPS, NGINX, Neon PostgreSQL, and a secured Spring Boot backend." },
+  { company: "TrainX", role: "Apprentice", period: "2025", text: "Intensive on-site engineering program focused on Java, data structures, databases, and building practical software systems." },
 ];
 
 const skills = ["JAVA", "SPRING BOOT", "REACT", "NEXT.JS", "POSTGRESQL", "SECURITY", "DOCKER", "NGINX", "REST APIS", "TYPESCRIPT"];
@@ -53,6 +62,48 @@ function SystemCore() {
   );
 }
 
+function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
+  if (!project.media.length) {
+    return (
+      <div className="relative flex min-h-[340px] items-end overflow-hidden bg-[#111410] p-7 sm:min-h-[420px] sm:p-9">
+        <div className="absolute inset-0 opacity-50 [background-image:linear-gradient(135deg,transparent_48%,rgba(199,255,56,.1)_49%,rgba(199,255,56,.1)_51%,transparent_52%)] [background-size:42px_42px]" />
+        <div className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#c7ff38]/20 shadow-[0_0_80px_rgba(199,255,56,.08)]" />
+        <div className="absolute left-1/2 top-1/2 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-[#c7ff38]/50" />
+        <div className="relative flex w-full items-end justify-between">
+          <div><p className="font-mono text-[9px] uppercase tracking-[.2em] text-[#c7ff38]">Visual slot reserved</p><p className="mt-2 text-xl font-medium">ModaStitch product film</p></div>
+          <span className="rounded-full border border-white/10 px-3 py-2 font-mono text-[8px] uppercase tracking-wider text-white/35">Incoming</span>
+        </div>
+      </div>
+    );
+  }
+
+  const isExtension = project.title === "Email ReplyCraft";
+  return (
+    <div className="relative min-h-[390px] overflow-hidden bg-[#0d100d] p-4 sm:min-h-[460px] sm:p-7">
+      <div className="absolute inset-0 opacity-[.04] [background-image:linear-gradient(rgba(255,255,255,.5)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.5)_1px,transparent_1px)] [background-size:28px_28px]" />
+      <div className="relative h-[72%] overflow-hidden rounded-[1.25rem] border border-white/15 bg-black shadow-[0_24px_70px_rgba(0,0,0,.45)] transition duration-700 group-hover:-translate-y-1 group-hover:rotate-[.35deg]">
+        <Image src={project.media[0]} alt={`${project.title} interface`} fill sizes="(max-width: 1024px) 100vw, 55vw" className="object-cover" />
+        <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10" />
+        {isExtension && (
+          <>
+            <div className="absolute left-[29.2%] top-[76.3%] h-[5.2%] w-[10%] rounded-full border-2 border-[#c7ff38] bg-[#c7ff38]/10 shadow-[0_0_24px_rgba(199,255,56,.75)]" />
+            <div className="absolute bottom-4 left-4 rounded-full bg-[#c7ff38] px-3 py-2 font-mono text-[8px] font-bold uppercase tracking-[.14em] text-black shadow-xl sm:text-[9px]">Generate Reply · inside Gmail</div>
+          </>
+        )}
+      </div>
+      <div className="absolute bottom-5 right-4 h-[43%] w-[48%] overflow-hidden rounded-[1.1rem] border border-white/20 bg-black shadow-[0_24px_70px_rgba(0,0,0,.6)] transition duration-700 group-hover:-translate-x-2 group-hover:translate-y-1 group-hover:-rotate-1 sm:bottom-7 sm:right-7">
+        <Image src={project.media[1]} alt={`${project.title} secondary interface`} fill sizes="(max-width: 1024px) 55vw, 30vw" className="object-cover" />
+        <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
+      </div>
+      {project.media[2] && (
+        <div className="absolute bottom-7 left-7 hidden h-[25%] w-[27%] overflow-hidden rounded-xl border border-white/15 bg-black shadow-2xl sm:block">
+          <Image src={project.media[2]} alt={`${project.title} sign in interface`} fill sizes="20vw" className="object-cover" />
+        </div>
+      )}
+    </div>
+  );
+}
+
 export function PortfolioExperience() {
   const container = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: container });
@@ -65,7 +116,7 @@ export function PortfolioExperience() {
       <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(circle_at_50%_-10%,rgba(199,255,56,.09),transparent_35%)]" />
 
       <nav className="fixed left-1/2 top-4 z-50 flex w-[calc(100%-24px)] max-w-6xl -translate-x-1/2 items-center justify-between rounded-full border border-white/10 bg-black/55 px-4 py-3 backdrop-blur-xl sm:px-5">
-        <a href="#top" className="flex items-center gap-2.5 text-sm font-semibold tracking-tight"><span className="grid h-7 w-7 place-items-center rounded-full bg-[#c7ff38] text-xs font-black text-black">V</span> vivek.dev</a>
+        <a href="#top" className="flex items-center"><BrandMark /></a>
         <div className="hidden items-center gap-6 font-mono text-[10px] uppercase tracking-[.14em] text-white/50 sm:flex"><a href="#work" className="transition hover:text-white">Work</a><a href="#about" className="transition hover:text-white">About</a><a href="#contact" className="transition hover:text-white">Contact</a></div>
         <a href="#contact" className="flex items-center gap-2 rounded-full border border-[#c7ff38]/30 px-3 py-2 font-mono text-[9px] uppercase tracking-wider text-[#c7ff38]"><span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#c7ff38]" /> Available</a>
       </nav>
@@ -105,20 +156,46 @@ export function PortfolioExperience() {
           <div className="mx-auto max-w-[1440px] px-5 lg:px-12">
             <Reveal><div className="mb-16 flex items-end justify-between"><div><p className="mb-5 font-mono text-[10px] uppercase tracking-[.22em] text-[#c7ff38]">[ 02 — SELECTED WORK ]</p><h2 className="text-5xl font-medium tracking-[-.06em] sm:text-7xl">Proof, not promises.</h2></div><span className="hidden font-mono text-[10px] text-white/25 sm:block">04 PRODUCTION BUILDS</span></div></Reveal>
             <div className="space-y-4">
-              {projects.map((project, i) => <Reveal key={project.title}><a href={project.href} target="_blank" rel="noreferrer" className="group grid min-h-72 overflow-hidden rounded-[2rem] border border-white/10 bg-white/[.025] transition duration-500 hover:border-white/25 hover:bg-white/[.05] md:grid-cols-[90px_1fr_1fr_80px]">
-                <div className="border-b border-white/10 p-6 font-mono text-[10px] text-white/30 md:border-b-0 md:border-r">{project.n}</div>
-                <div className="flex flex-col justify-between p-6 sm:p-9"><div><p className="mb-3 font-mono text-[9px] uppercase tracking-[.18em]" style={{ color: project.color }}>{project.type}</p><h3 className="text-4xl font-semibold tracking-[-.055em] sm:text-5xl">{project.title}</h3></div><div className="mt-10 flex flex-wrap gap-2">{project.tags.map(t => <span key={t} className="rounded-full border border-white/10 px-3 py-1.5 font-mono text-[8px] uppercase tracking-wider text-white/40">{t}</span>)}</div></div>
-                <div className="flex items-center p-6 text-sm leading-6 text-white/45 sm:p-9">{project.copy}</div>
-                <div className="grid place-items-center border-t border-white/10 md:border-l md:border-t-0"><ArrowUpRight className="h-6 w-6 transition duration-500 group-hover:rotate-45 group-hover:scale-125" style={{ color: project.color }} /></div>
-              </a></Reveal>)}
+              {projects.map((project) => (
+                <Reveal key={project.title}>
+                  <a href={project.href} target="_blank" rel="noreferrer" className="group grid overflow-hidden rounded-[2rem] border border-white/10 bg-white/[.025] transition duration-500 hover:border-white/25 hover:bg-white/[.045] lg:grid-cols-[.82fr_1.18fr]">
+                    <div className="flex min-h-[390px] flex-col justify-between p-7 sm:p-10 lg:min-h-[460px]">
+                      <div>
+                        <div className="mb-10 flex items-center justify-between">
+                          <span className="font-mono text-[10px] text-white/30">{project.n}</span>
+                          <span className="grid h-11 w-11 place-items-center rounded-full border border-white/10 transition duration-500 group-hover:rotate-45 group-hover:border-white/30" style={{ color: project.color }}><ArrowUpRight className="h-5 w-5" /></span>
+                        </div>
+                        <p className="mb-3 font-mono text-[9px] uppercase tracking-[.18em]" style={{ color: project.color }}>{project.type}</p>
+                        <h3 className="text-4xl font-semibold tracking-[-.055em] sm:text-5xl">{project.title}</h3>
+                        <p className="mt-7 max-w-lg text-sm leading-6 text-white/45">{project.copy}</p>
+                      </div>
+                      <div className="mt-10 flex flex-wrap gap-2">{project.tags.map((tag) => <span key={tag} className="rounded-full border border-white/10 px-3 py-1.5 font-mono text-[8px] uppercase tracking-wider text-white/40">{tag}</span>)}</div>
+                    </div>
+                    <ProjectVisual project={project} />
+                  </a>
+                </Reveal>
+              ))}
             </div>
           </div>
         </section>
 
         <section className="mx-auto grid max-w-[1440px] gap-12 px-5 py-28 lg:grid-cols-[.7fr_1.3fr] lg:px-12 lg:py-40">
           <Reveal><div className="lg:sticky lg:top-28"><p className="mb-5 font-mono text-[10px] uppercase tracking-[.22em] text-[#c7ff38]">[ 03 — EXPERIENCE ]</p><h2 className="text-5xl font-medium tracking-[-.06em]">Field<br />notes.</h2></div></Reveal>
-          <div>
-            {[{company:"UP24Network",role:"Web Developer",period:"2026 — NOW",text:"Shipping a full-stack commerce platform to production across Vercel, Ubuntu VPS, NGINX, Neon PostgreSQL, and a secured Spring Boot backend."},{company:"TrainX",role:"Apprentice",period:"2025",text:"Intensive on-site engineering program focused on Java, data structures, databases, and building practical software systems."}].map((job, i) => <Reveal key={job.company}><div className="grid gap-5 border-t border-white/10 py-9 sm:grid-cols-[1fr_1fr]"><div><p className="font-mono text-[9px] text-[#c7ff38]">0{i + 1} / {job.period}</p><h3 className="mt-3 text-2xl font-medium">{job.company}</h3><p className="text-sm text-white/35">{job.role}</p></div><p className="text-sm leading-6 text-white/45">{job.text}</p></div></Reveal>)}
+          <div className="relative pl-10">
+            <div className="absolute bottom-10 left-[7px] top-10 w-px bg-white/10">
+              <motion.div initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }} className="h-full w-px origin-top bg-gradient-to-b from-[#c7ff38] via-[#c7ff38]/60 to-[#c7ff38]/20" />
+            </div>
+            {experience.map((job, i) => (
+              <Reveal key={job.company}>
+                <div className="relative grid gap-5 border-t border-white/10 py-10 sm:grid-cols-[1fr_1fr]">
+                  <span className={`absolute -left-[40px] top-10 grid h-4 w-4 place-items-center rounded-full border ${i === 0 ? "border-[#c7ff38] bg-[#c7ff38] shadow-[0_0_20px_rgba(199,255,56,.55)]" : "border-white/25 bg-[#080a08]"}`}>
+                    {i === 0 && <span className="h-1.5 w-1.5 rounded-full bg-black" />}
+                  </span>
+                  <div><p className="font-mono text-[9px] text-[#c7ff38]">0{i + 1} / {job.period}</p><h3 className="mt-3 text-2xl font-medium">{job.company}</h3><p className="text-sm text-white/35">{job.role}</p></div>
+                  <p className="text-sm leading-6 text-white/45">{job.text}</p>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </section>
 
