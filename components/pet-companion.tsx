@@ -187,19 +187,19 @@ export function PetCompanion() {
       )}
 
       <style jsx global>{`
-        .pet-sprite,.pet-thumb{background-repeat:no-repeat;background-size:800% 900%;background-position:0 0;image-rendering:pixelated}
+        .pet-sprite,.pet-thumb{background-repeat:no-repeat;background-size:800% 300%;background-position:0 0;image-rendering:pixelated}
         .pet-stage{isolation:isolate;overflow:visible}
         .pet-sprite{animation:pet-idle 1.1s linear infinite;will-change:background-position;pointer-events:none}
         .pet-sprite.pet-static{animation:none;background-position:0 0}
-        .pet-thumb{display:block;width:42px;height:46px;background-size:800% 900%}
-        .pet-shell:hover .pet-sprite,.pet-shell:focus-visible .pet-sprite{background-position-y:37.5%;animation:pet-wave 1.35s linear infinite}
+        .pet-thumb{display:block;width:42px;height:46px;background-size:800% 300%}
+        .pet-shell:hover .pet-sprite,.pet-shell:focus-visible .pet-sprite{background-position-y:50%;animation:pet-wave 1.35s linear infinite}
         .pet-shell:hover{filter:drop-shadow(0 10px 16px rgba(199,255,56,.16))}
-        .pet-shell.pet-landed .pet-sprite{background-position:57.1429% 50%;animation:none}
-        .pet-shell.pet-jumping .pet-sprite{background-position-y:50%;animation:pet-jump-frames .92s linear 1 both}
+        .pet-shell.pet-landed .pet-sprite{background-position:57.1429% 100%;animation:none}
+        .pet-shell.pet-jumping .pet-sprite{background-position-y:100%;animation:pet-jump-frames .92s linear 1 both}
         @keyframes pet-idle{0%,16%{background-position-x:0}16.1%,32%{background-position-x:14.2857%}32.1%,48%{background-position-x:28.5714%}48.1%,64%{background-position-x:42.8571%}64.1%,80%{background-position-x:57.1429%}80.1%,100%{background-position-x:71.4286%}}
         @keyframes pet-wave{0%,24%{background-position-x:0}24.1%,49%{background-position-x:14.2857%}49.1%,74%{background-position-x:28.5714%}74.1%,100%{background-position-x:42.8571%}}
         @keyframes pet-jump-frames{0%,18%{background-position-x:0}18.1%,36%{background-position-x:14.2857%}36.1%,54%{background-position-x:28.5714%}54.1%,72%{background-position-x:42.8571%}72.1%,100%{background-position-x:57.1429%}}
-        @media(prefers-reduced-motion:reduce){.pet-sprite{animation:none!important;background-position:0 0!important}.pet-shell:hover .pet-sprite,.pet-shell:focus-visible .pet-sprite{background-position:0 37.5%!important}.pet-shell.pet-jumping .pet-sprite{background-position:57.1429% 50%!important;animation:pet-jump-frames .01ms linear 1!important}}
+        @media(prefers-reduced-motion:reduce){.pet-sprite{animation:none!important;background-position:0 0!important}.pet-shell:hover .pet-sprite,.pet-shell:focus-visible .pet-sprite{background-position:0 50%!important}.pet-shell.pet-jumping .pet-sprite{background-position:57.1429% 100%!important;animation:pet-jump-frames .01ms linear 1!important}}
       `}</style>
     </>
   );
