@@ -10,27 +10,27 @@ const pets = [
   { id: "pip", name: "Pip", type: "Saint monkey", sheet: "/pets/pip/spritesheet.webp" },
 ] as const;
 
-const sectionCopy: Record<(typeof pets)[number]["id"], Record<string, string>> = {
+const sectionCopy: Record<(typeof pets)[number]["id"], Record<string, readonly string[]>> = {
   mochi: {
-    top: "Welcome. Vivek is a full-stack engineer who prefers complete, dependable systems over fashionable fragments.",
-    about: "A worthy craftsperson minds every layer. Architecture, APIs, interfaces, data, and deployment all receive his considered attention.",
-    work: "These are functioning products, not courtly decoration. Each demonstrates judgment across frontend, backend, security, and infrastructure.",
-    experience: "The chronicle is young, yet the character is established: learn swiftly, accept responsibility, and deliver the entire outcome.",
-    contact: "Should your venture require serious engineering and thoughtful ownership, you may present your proposal here.",
+    top: ["Welcome. Vivek builds complete, dependable systems from interface to deployment.", "You have entered Vivek's workshop: Java foundations, thoughtful interfaces, and production-minded engineering."],
+    about: ["A worthy craftsperson minds every layer: architecture, APIs, data, interfaces, and deployment.", "Vivek works across the stack because excellent products depend on every seam being considered."],
+    work: ["These are functioning products, not courtly decoration: commerce, finance, AI email, and travel systems.", "ModaStitch shows production ownership; CoinTracker, ReplyCraft, and WanderWise show range across real product problems.", "Each project combines useful interfaces with authentication, data flows, services, and deployment judgment."],
+    experience: ["The chronicle shows a clear pattern: learn swiftly, accept responsibility, and deliver the complete outcome.", "His experience joins structured training with hands-on responsibility for software running in production."],
+    contact: ["Should your venture require serious engineering and thoughtful ownership, present your proposal here.", "A clear brief is welcome. Vivek is available for products that deserve careful, end-to-end execution."],
   },
   byte: {
-    top: "Here’s the straight smoke: Vivek builds the backend, the interface, and the production setup instead of passing the problem around.",
-    about: "He works the whole stack because bugs love hiding between teams. Hard to hide when one engineer understands every seam.",
-    work: "No vaporware in this lineup. These things authenticate users, move data, call services, and survive outside a tutorial tab.",
-    experience: "Not the longest rap sheet yet, but the pattern’s solid: pick up the hard part, learn fast, and get it shipped.",
-    contact: "Got a real build and a sensible deadline? Leave the brief. He’ll answer without the sales fog.",
+    top: ["Straight smoke: Vivek handles the backend, interface, and production setup instead of passing problems around.", "This is a full-stack engineer's portfolio. The systems ship; the buzzwords can wait outside."],
+    about: ["He works the whole stack because bugs love hiding between teams. Hard to hide when one engineer knows every seam.", "Java is home base, but he follows the problem through React, databases, security, containers, and servers."],
+    work: ["No vaporware here. These projects authenticate users, move data, call services, and live beyond a tutorial tab.", "ModaStitch went to production; CoinTracker handles money data; ReplyCraft works inside Gmail; WanderWise handles travel flows.", "Different products, same rule: make the backend solid, the interface sharp, and the deployment real."],
+    experience: ["The pattern is solid: pick up the hard part, learn fast, own the result, and get it shipped.", "Training built the fundamentals; production work added the useful scars: servers, security, releases, and responsibility."],
+    contact: ["Got a real build and a sensible deadline? Leave the brief. He will answer without the sales fog.", "If you need someone who can own more than one layer, this is where you start the conversation."],
   },
   pip: {
-    top: "A complete system is many small decisions held in balance. Vivek brings backend strength, interface care, and production discipline together.",
-    about: "He studies the whole path from database to user experience, because reliable products emerge when every layer is understood.",
-    work: "Each project is a lesson made tangible: secure flows, useful interfaces, connected services, and infrastructure working as one.",
-    experience: "Growth is not measured only in years. It appears in responsibility accepted, problems understood, and outcomes delivered with care.",
-    contact: "If your idea deserves patient thought and committed engineering, share it here. Good work begins with a clear conversation.",
+    top: ["A complete system is many decisions held in balance. Vivek brings backend strength, interface care, and production discipline together.", "Welcome. This portfolio follows one idea: understand the whole path, then build each layer with intention."],
+    about: ["Vivek studies the path from database to user experience, because reliability emerges when every layer is understood.", "His strength is not merely knowing tools, but understanding how architecture, people, and product needs connect."],
+    work: ["Each project is a lesson made tangible: secure flows, useful interfaces, connected services, and infrastructure working as one.", "ModaStitch, CoinTracker, ReplyCraft, and WanderWise solve different problems through the same end-to-end discipline.", "Look beyond the screenshots: authentication, data, APIs, deployment, and user experience are all part of the work."],
+    experience: ["Growth appears in responsibility accepted, problems understood, and outcomes delivered with care.", "The journey combines disciplined study with production ownership, turning knowledge into dependable practice."],
+    contact: ["If your idea deserves patient thought and committed engineering, share it here. Good work begins with clarity.", "A thoughtful collaboration starts with an honest problem. Tell Vivek what you are trying to build."],
   },
 };
 
@@ -42,11 +42,13 @@ export function PetCompanion() {
   const [selected, setSelected] = useState<PetId>("mochi");
   const [pickerOpen, setPickerOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("top");
+  const [dialogue, setDialogue] = useState(sectionCopy.mochi.top[0]);
   const [speechVisible, setSpeechVisible] = useState(false);
   const [isJumping, setIsJumping] = useState(false);
   const [hasLanded, setHasLanded] = useState(false);
   const actionLock = useRef(false);
   const speechTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const previousDialogue = useRef<Record<string, number>>({});
   const currentPet = pets.find((pet) => pet.id === selected) ?? pets[0];
 
   useEffect(() => {
@@ -67,21 +69,42 @@ export function PetCompanion() {
     const sections = ["top", "about", "work", "experience", "contact"]
       .map((id) => document.getElementById(id))
       .filter((section): section is HTMLElement => Boolean(section));
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible?.target.id) setActiveSection(visible.target.id);
-      },
-      { rootMargin: "-30% 0px -48% 0px", threshold: [0, 0.15, 0.4] },
-    );
-
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
+    if (!sections.length) return;
+    let frame = 0;
+    const updateSection = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const focusLine = window.innerHeight * 0.42;
+        const active = sections.find((section) => {
+          const bounds = section.getBoundingClientRect();
+          return bounds.top <= focusLine && bounds.bottom > focusLine;
+        }) ?? sections.reduce((nearest, section) => {
+          const nearestDistance = Math.abs(nearest.getBoundingClientRect().top - focusLine);
+          const sectionDistance = Math.abs(section.getBoundingClientRect().top - focusLine);
+          return sectionDistance < nearestDistance ? section : nearest;
+        }, sections[0]);
+        if (active?.id) setActiveSection((current) => current === active.id ? current : active.id);
+      });
+    };
+    updateSection();
+    window.addEventListener("scroll", updateSection, { passive: true });
+    window.addEventListener("resize", updateSection);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", updateSection);
+      window.removeEventListener("resize", updateSection);
+    };
   }, [enabled]);
 
   useEffect(() => {
     if (!enabled) return;
+    const options = sectionCopy[selected][activeSection] ?? sectionCopy[selected].top;
+    const dialogueKey = `${selected}:${activeSection}`;
+    const lastIndex = previousDialogue.current[dialogueKey];
+    let nextIndex = Math.floor(Math.random() * options.length);
+    if (options.length > 1 && nextIndex === lastIndex) nextIndex = (nextIndex + 1) % options.length;
+    previousDialogue.current[dialogueKey] = nextIndex;
+    setDialogue(options[nextIndex]);
     setSpeechVisible(true);
     if (speechTimer.current) clearTimeout(speechTimer.current);
     speechTimer.current = setTimeout(() => setSpeechVisible(false), 6000);
@@ -161,7 +184,7 @@ export function PetCompanion() {
               aria-label="Dismiss pet message"
             >
               <span className="mb-2 flex items-center gap-2 font-mono text-[8px] font-bold uppercase tracking-[.16em] text-[#c7ff38]"><span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#c7ff38]" /> {currentPet.name} says</span>
-              <span className="block text-[11px] leading-[1.55] text-white/70">{sectionCopy[selected][activeSection] ?? sectionCopy[selected].top}</span>
+              <span className="block text-[11px] leading-[1.55] text-white/70">{dialogue}</span>
               <span className="absolute -bottom-2 right-8 h-4 w-4 rotate-45 border-b border-r border-white/15 bg-[#0b0d0b]" />
             </button>
           )}
