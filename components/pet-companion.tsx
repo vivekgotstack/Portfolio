@@ -44,6 +44,7 @@ export function PetCompanion() {
   const [activeSection, setActiveSection] = useState("top");
   const [speechVisible, setSpeechVisible] = useState(false);
   const [isJumping, setIsJumping] = useState(false);
+  const [hasLanded, setHasLanded] = useState(false);
   const actionLock = useRef(false);
   const speechTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const currentPet = pets.find((pet) => pet.id === selected) ?? pets[0];
@@ -101,6 +102,7 @@ export function PetCompanion() {
   function jumpOnce() {
     if (actionLock.current) return;
     actionLock.current = true;
+    setHasLanded(false);
     setIsJumping(true);
   }
 
@@ -169,31 +171,35 @@ export function PetCompanion() {
             onClick={jumpOnce}
             disabled={isJumping}
             onAnimationEnd={(event) => {
-              if (event.currentTarget !== event.target || event.animationName !== "pet-jump") return;
+              if (event.animationName !== "pet-jump-frames") return;
               actionLock.current = false;
               setIsJumping(false);
+              setHasLanded(true);
             }}
-            className={`pet-shell relative block h-[104px] w-24 overflow-visible rounded-[1.4rem] outline-none focus-visible:ring-2 focus-visible:ring-[#c7ff38] ${isJumping ? "pet-jumping" : ""}`}
+            onPointerLeave={() => { if (!isJumping) setHasLanded(false); }}
+            className={`pet-shell relative block h-[104px] w-24 overflow-visible rounded-[1.4rem] outline-none focus-visible:ring-2 focus-visible:ring-[#c7ff38] ${isJumping ? "pet-jumping" : ""} ${hasLanded ? "pet-landed" : ""}`}
             aria-label={`${currentPet.name}, portfolio guide. Hover for a slow wave; click for one jump.`}
           >
-            <span className="pet-sprite absolute inset-0" style={{ backgroundImage: `url(${currentPet.sheet})` }} aria-hidden="true" />
+            <span className={`pet-sprite absolute inset-0 ${selected === "pip" ? "pet-static" : ""}`} style={{ backgroundImage: `url(${currentPet.sheet})` }} aria-hidden="true" />
           </button>
         </div>,
         document.body,
       )}
 
       <style jsx global>{`
-        .pet-sprite,.pet-thumb{background-repeat:no-repeat;background-size:800% 200%;background-position:0 0;image-rendering:pixelated}
+        .pet-sprite,.pet-thumb{background-repeat:no-repeat;background-size:800% 900%;background-position:0 0;image-rendering:pixelated}
         .pet-stage{isolation:isolate;overflow:visible}
         .pet-sprite{animation:pet-idle 1.1s linear infinite;will-change:background-position;pointer-events:none}
-        .pet-thumb{display:block;width:42px;height:46px;background-size:800% 200%}
-        .pet-shell:hover .pet-sprite,.pet-shell:focus-visible .pet-sprite{background-position-y:100%;animation:pet-wave 1.35s linear infinite}
+        .pet-sprite.pet-static{animation:none;background-position:0 0}
+        .pet-thumb{display:block;width:42px;height:46px;background-size:800% 900%}
+        .pet-shell:hover .pet-sprite,.pet-shell:focus-visible .pet-sprite{background-position-y:37.5%;animation:pet-wave 1.35s linear infinite}
         .pet-shell:hover{filter:drop-shadow(0 10px 16px rgba(199,255,56,.16))}
-        .pet-shell.pet-jumping{animation:pet-jump .78s cubic-bezier(.2,.75,.25,1);will-change:transform}
+        .pet-shell.pet-landed .pet-sprite{background-position:57.1429% 50%;animation:none}
+        .pet-shell.pet-jumping .pet-sprite{background-position-y:50%;animation:pet-jump-frames .92s linear 1 both}
         @keyframes pet-idle{0%,16%{background-position-x:0}16.1%,32%{background-position-x:14.2857%}32.1%,48%{background-position-x:28.5714%}48.1%,64%{background-position-x:42.8571%}64.1%,80%{background-position-x:57.1429%}80.1%,100%{background-position-x:71.4286%}}
         @keyframes pet-wave{0%,24%{background-position-x:0}24.1%,49%{background-position-x:14.2857%}49.1%,74%{background-position-x:28.5714%}74.1%,100%{background-position-x:42.8571%}}
-        @keyframes pet-jump{0%,100%{transform:translate3d(0,0,0)}42%{transform:translate3d(0,-34px,0) scale(1.03)}62%{transform:translate3d(0,-30px,0) scale(1.03)}82%{transform:translate3d(0,3px,0) scale(.99)}}
-        @media(prefers-reduced-motion:reduce){.pet-sprite{animation:none!important;background-position:0 0!important}.pet-shell:hover .pet-sprite,.pet-shell:focus-visible .pet-sprite{background-position:0 100%!important}}
+        @keyframes pet-jump-frames{0%,18%{background-position-x:0}18.1%,36%{background-position-x:14.2857%}36.1%,54%{background-position-x:28.5714%}54.1%,72%{background-position-x:42.8571%}72.1%,100%{background-position-x:57.1429%}}
+        @media(prefers-reduced-motion:reduce){.pet-sprite{animation:none!important;background-position:0 0!important}.pet-shell:hover .pet-sprite,.pet-shell:focus-visible .pet-sprite{background-position:0 37.5%!important}.pet-shell.pet-jumping .pet-sprite{background-position:57.1429% 50%!important;animation:pet-jump-frames .01ms linear 1!important}}
       `}</style>
     </>
   );
