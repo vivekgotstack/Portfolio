@@ -43,6 +43,8 @@ export function PetCompanion() {
   const [pickerOpen, setPickerOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("top");
   const [speechVisible, setSpeechVisible] = useState(false);
+  const [isJumping, setIsJumping] = useState(false);
+  const actionLock = useRef(false);
   const speechTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const currentPet = pets.find((pet) => pet.id === selected) ?? pets[0];
 
@@ -88,11 +90,18 @@ export function PetCompanion() {
   }, [activeSection, enabled, selected]);
 
   function togglePets() {
+    if (actionLock.current) return;
     setEnabled((value) => {
       const next = !value;
       setPickerOpen(next);
       return next;
     });
+  }
+
+  function jumpOnce() {
+    if (actionLock.current) return;
+    actionLock.current = true;
+    setIsJumping(true);
   }
 
   return (
@@ -101,6 +110,7 @@ export function PetCompanion() {
         <button
           type="button"
           onClick={togglePets}
+          disabled={isJumping}
           aria-pressed={enabled}
           className={`inline-flex h-9 items-center gap-2 rounded-full border px-3 font-mono text-[8px] font-bold uppercase tracking-[.13em] transition ${enabled ? "border-[#c7ff38]/45 bg-[#c7ff38]/10 text-[#c7ff38]" : "border-white/12 text-white/45 hover:border-white/25 hover:text-white"}`}
         >
@@ -111,6 +121,7 @@ export function PetCompanion() {
           <button
             type="button"
             onClick={() => setPickerOpen((value) => !value)}
+            disabled={isJumping}
             aria-expanded={pickerOpen}
             className="inline-flex h-9 items-center gap-1.5 rounded-full border border-white/12 px-2.5 font-mono text-[8px] uppercase tracking-[.12em] text-white/65 transition hover:border-white/25 hover:text-white sm:px-3"
           >
@@ -125,6 +136,7 @@ export function PetCompanion() {
               <button
                 key={pet.id}
                 type="button"
+                disabled={isJumping}
                 onClick={() => { setSelected(pet.id); setPickerOpen(false); }}
                 className={`flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left transition ${selected === pet.id ? "bg-[#c7ff38]/10" : "hover:bg-white/[.05]"}`}
               >
@@ -154,9 +166,15 @@ export function PetCompanion() {
 
           <button
             type="button"
-            onClick={() => setSpeechVisible((value) => !value)}
-            className="pet-shell relative block h-[104px] w-24 overflow-visible rounded-[1.4rem] outline-none focus-visible:ring-2 focus-visible:ring-[#c7ff38]"
-            aria-label={`${currentPet.name}, portfolio guide. Hover for a happy reaction; click to toggle their message.`}
+            onClick={jumpOnce}
+            disabled={isJumping}
+            onAnimationEnd={(event) => {
+              if (event.currentTarget !== event.target || event.animationName !== "pet-jump") return;
+              actionLock.current = false;
+              setIsJumping(false);
+            }}
+            className={`pet-shell relative block h-[104px] w-24 overflow-visible rounded-[1.4rem] outline-none focus-visible:ring-2 focus-visible:ring-[#c7ff38] ${isJumping ? "pet-jumping" : ""}`}
+            aria-label={`${currentPet.name}, portfolio guide. Hover for a slow wave; click for one jump.`}
           >
             <span className="pet-sprite absolute inset-0" style={{ backgroundImage: `url(${currentPet.sheet})` }} aria-hidden="true" />
           </button>
@@ -169,10 +187,12 @@ export function PetCompanion() {
         .pet-stage{isolation:isolate;overflow:visible}
         .pet-sprite{animation:pet-idle 1.1s linear infinite;will-change:background-position;pointer-events:none}
         .pet-thumb{display:block;width:42px;height:46px;background-size:800% 200%}
-        .pet-shell:hover .pet-sprite,.pet-shell:focus-visible .pet-sprite{background-position-y:100%;animation:pet-wave .72s linear infinite}
+        .pet-shell:hover .pet-sprite,.pet-shell:focus-visible .pet-sprite{background-position-y:100%;animation:pet-wave 1.35s linear infinite}
         .pet-shell:hover{filter:drop-shadow(0 10px 16px rgba(199,255,56,.16))}
+        .pet-shell.pet-jumping{animation:pet-jump .78s cubic-bezier(.2,.75,.25,1);will-change:transform}
         @keyframes pet-idle{0%,16%{background-position-x:0}16.1%,32%{background-position-x:14.2857%}32.1%,48%{background-position-x:28.5714%}48.1%,64%{background-position-x:42.8571%}64.1%,80%{background-position-x:57.1429%}80.1%,100%{background-position-x:71.4286%}}
         @keyframes pet-wave{0%,24%{background-position-x:0}24.1%,49%{background-position-x:14.2857%}49.1%,74%{background-position-x:28.5714%}74.1%,100%{background-position-x:42.8571%}}
+        @keyframes pet-jump{0%,100%{transform:translate3d(0,0,0)}42%{transform:translate3d(0,-34px,0) scale(1.03)}62%{transform:translate3d(0,-30px,0) scale(1.03)}82%{transform:translate3d(0,3px,0) scale(.99)}}
         @media(prefers-reduced-motion:reduce){.pet-sprite{animation:none!important;background-position:0 0!important}.pet-shell:hover .pet-sprite,.pet-shell:focus-visible .pet-sprite{background-position:0 100%!important}}
       `}</style>
     </>
