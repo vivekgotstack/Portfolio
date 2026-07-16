@@ -1,0 +1,64 @@
+{
+  "ok": false,
+  "strip": "C:\\VivekDev\\Development\\CodeLab\\Portfolio\\tmp\\hatch\\byte\\decoded\\look-cardinals.png",
+  "directions": [
+    "000",
+    "090",
+    "180",
+    "270"
+  ],
+  "errors": [
+    "000 has 60 non-transparent pixels near its source slot edge",
+    "090 has 40 non-transparent pixels near its source slot edge"
+  ],
+  "anchors": [
+    {
+      "direction": "000",
+      "source_box": [
+        0,
+        0,
+        543,
+        724
+      ],
+      "used_pixels": 120253,
+      "edge_pixels": 60,
+      "output": "C:\\VivekDev\\Development\\CodeLab\\Portfolio\\tmp\\hatch\\byte\\decoded\\look-anchors\\000.png"
+    },
+    {
+      "direction": "090",
+      "source_box": [
+        543,
+        0,
+        1086,
+        724
+      ],
+      "used_pixels": 116840,
+      "edge_pixels": 40,
+      "output": "C:\\VivekDev\\Development\\CodeLab\\Portfolio\\tmp\\hatch\\byte\\decoded\\look-anchors\\090.png"
+    },
+    {
+      "direction": "180",
+      "source_box": [
+        1086,
+        0,
+        1629,
+        724
+      ],
+      "used_pixels": 115005,
+      "edge_pixels": 0,
+      "output": "C:\\VivekDev\\Development\\CodeLab\\Portfolio\\tmp\\hatch\\byte\\decoded\\look-anchors\\180.png"
+    },
+    {
+      "direction": "270",
+      "source_box": [
+        1629,
+        0,
+        2172,
+        724
+      ],
+      "used_pixels": 119468,
+      "edge_pixels": 0,
+      "output": "C:\\VivekDev\\Development\\CodeLab\\Portfolio\\tmp\\hatch\\byte\\decoded\\look-anchors\\270.png"
+    }
+  ]
+}

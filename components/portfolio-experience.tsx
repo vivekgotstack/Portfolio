@@ -6,6 +6,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, ArrowUpRight, Github, Linkedin, Mail, MapPin, MoveRight, Terminal, Zap } from "lucide-react";
 import { ContactForm } from "./contact-form";
 import { BrandMark } from "./brand-mark";
+import { PetCompanion } from "./pet-companion";
 
 const projects = [
   {
@@ -106,7 +107,7 @@ export function PortfolioExperience() {
       <nav className="fixed left-1/2 top-4 z-50 flex w-[calc(100%-24px)] max-w-6xl -translate-x-1/2 items-center justify-between rounded-full border border-white/10 bg-black/55 px-4 py-3 backdrop-blur-xl sm:px-5">
         <a href="#top" className="flex items-center"><BrandMark /></a>
         <div className="hidden items-center gap-6 font-mono text-[10px] uppercase tracking-[.14em] text-white/50 sm:flex"><a href="#work" className="transition hover:text-white">Work</a><a href="#about" className="transition hover:text-white">About</a><a href="#contact" className="transition hover:text-white">Contact</a></div>
-        <a href="#contact" className="flex items-center gap-2 rounded-full border border-[#c7ff38]/30 px-3 py-2 font-mono text-[9px] uppercase tracking-wider text-[#c7ff38]"><span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#c7ff38]" /> Available</a>
+        <div className="flex items-center gap-2"><PetCompanion /><a href="#contact" className="hidden items-center gap-2 rounded-full border border-[#c7ff38]/30 px-3 py-2 font-mono text-[9px] uppercase tracking-wider text-[#c7ff38] md:flex"><span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#c7ff38]" /> Available</a></div>
       </nav>
 
       <main className="relative z-10">
@@ -167,7 +168,7 @@ export function PortfolioExperience() {
           </div>
         </section>
 
-        <section className="mx-auto grid max-w-[1440px] gap-12 px-5 py-28 lg:grid-cols-[.7fr_1.3fr] lg:px-12 lg:py-40">
+        <section id="experience" className="mx-auto grid max-w-[1440px] gap-12 px-5 py-28 lg:grid-cols-[.7fr_1.3fr] lg:px-12 lg:py-40">
           <Reveal><div className="lg:sticky lg:top-28"><p className="mb-5 font-mono text-[10px] uppercase tracking-[.22em] text-[#c7ff38]">[ 03 — EXPERIENCE ]</p><h2 className="text-5xl font-medium tracking-[-.06em]">Field<br />notes.</h2></div></Reveal>
           <div className="relative pl-10">
             <div className="absolute bottom-10 left-[7px] top-10 w-px bg-white/10">

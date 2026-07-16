@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "chroma_key": {
+    "hex": "#00FFFF",
+    "rgb": [
+      0,
+      255,
+      255
+    ],
+    "threshold": 96.0
+  },
+  "rows": [
+    {
+      "state": "waiting",
+      "frames": [
+        "C:\\VivekDev\\Development\\CodeLab\\Portfolio\\tmp\\hatch\\byte\\qa\\rows\\waiting\\frames\\waiting\\00.png",
+        "C:\\VivekDev\\Development\\CodeLab\\Portfolio\\tmp\\hatch\\byte\\qa\\rows\\waiting\\frames\\waiting\\01.png",
+        "C:\\VivekDev\\Development\\CodeLab\\Portfolio\\tmp\\hatch\\byte\\qa\\rows\\waiting\\frames\\waiting\\02.png",
+        "C:\\VivekDev\\Development\\CodeLab\\Portfolio\\tmp\\hatch\\byte\\qa\\rows\\waiting\\frames\\waiting\\03.png",
+        "C:\\VivekDev\\Development\\CodeLab\\Portfolio\\tmp\\hatch\\byte\\qa\\rows\\waiting\\frames\\waiting\\04.png",
+        "C:\\VivekDev\\Development\\CodeLab\\Portfolio\\tmp\\hatch\\byte\\qa\\rows\\waiting\\frames\\waiting\\05.png"
+      ],
+      "method": "stable-slots"
+    }
+  ]
+}

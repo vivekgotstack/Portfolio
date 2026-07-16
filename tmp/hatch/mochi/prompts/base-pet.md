@@ -1,0 +1,7 @@
+Create one clean full-body reference sprite for Codex pet Mochi.
+
+Pet identity: Noble white pixel cat; elegant composed aristocratic persona. Preserve the exact face, white and pale gray palette, pink inner ears and nose, huge square black eyes, curled tail, proportions, stance, and luminous pixel-block style from the supplied reference. Remove only the dark gradient and glow background. No redesign, no new props, no text, no logos, no detached effects, no scenery. Use flat solid magenta chroma key..
+Style: Pet-safe sprite: compact full-body mascot, readable in a 192x208 cell, clear silhouette, simple face, stable palette/materials, and crisp edges for chroma-key extraction. Style `pixel`: Pixel-art-adjacent digital mascot with a chunky silhouette, simple dark outline, limited palette, flat cel shading, and visible stepped edges. User style notes: Faithful pixel-block sprite adaptation of the supplied cat. Preserve chunky square pixel geometry and softly luminous white-gray blocks without importing the background glow. Crisp readable silhouette at 96-112px..
+
+
+Place a single centered pose on a perfectly flat pure green #00FF00 chroma-key background. Keep the full pet visible, compact, readable at 192x208, and easy to animate. Preserve approved reference identity cues. No scenery, text, borders, checkerboard transparency, shadows, glows, detached effects, or extra props. Keep #00FF00 and close colors out of the pet, props, highlights, and effects.
