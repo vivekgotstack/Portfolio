@@ -1,7 +1,6 @@
 import type React from "react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { headers } from "next/headers";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import StructuredData from "@/components/structured-data";
@@ -19,13 +18,7 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
 });
 
-export async function generateMetadata(): Promise<Metadata> {
-  const requestHeaders = await headers();
-  const host = requestHeaders.get("x-forwarded-host") || requestHeaders.get("host") || "localhost:3000";
-  const protocol = requestHeaders.get("x-forwarded-proto") || (host.startsWith("localhost") ? "http" : "https");
-
-  return {
-  metadataBase: new URL(`${protocol}://${host}`),
+export const metadata: Metadata = {
   title: "Vivek Nigam | Full Stack Developer",
   description:
     "Final-year B.Tech Computer Science student and Full Stack Developer from India, working with Java, Spring Boot, React, and modern web technologies.",
@@ -57,24 +50,14 @@ export async function generateMetadata(): Promise<Metadata> {
     description:
       "Final-year Computer Science student and Full Stack Developer skilled in Java, Spring Boot, React, and databases.",
     siteName: "Vivek Nigam Portfolio",
-    images: [
-      {
-        url: "/og.png",
-        width: 1200,
-        height: 630,
-        alt: "Vivek Nigam — Systems that ship",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Vivek Nigam | Full Stack Developer",
     description:
       "Final-year B.Tech CSE student and Full Stack Developer from India.",
-    images: ["/og.png"],
   },
 };
-}
 
 export default function RootLayout({
   children,

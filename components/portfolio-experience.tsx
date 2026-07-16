@@ -23,7 +23,7 @@ const projects = [
     n: "03", title: "Email ReplyCraft", type: "AI productivity platform", color: "#b49cff",
     copy: "AI-assisted email writing with selectable tone, generation history, refresh-token auth, and a browser extension that works directly inside Gmail.",
     tags: ["OpenRouter", "Chrome Extension", "JWT", "React", "PostgreSQL"], href: "https://email-reply-craft.vercel.app/",
-    media: ["/projects/replycraft-extension.png", "/projects/replycraft-generator.png", "/projects/replycraft-login.png"],
+    media: ["/projects/replycraft-extension.png", "/projects/replycraft-generator.png"],
   },
   {
     n: "04", title: "WanderWise", type: "Travel planning experience", color: "#ff9f7a",
@@ -77,29 +77,17 @@ function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
     );
   }
 
-  const isExtension = project.title === "Email ReplyCraft";
   return (
     <div className="relative min-h-[390px] overflow-hidden bg-[#0d100d] p-4 sm:min-h-[460px] sm:p-7">
       <div className="absolute inset-0 opacity-[.04] [background-image:linear-gradient(rgba(255,255,255,.5)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.5)_1px,transparent_1px)] [background-size:28px_28px]" />
       <div className="relative h-[72%] overflow-hidden rounded-[1.25rem] border border-white/15 bg-black shadow-[0_24px_70px_rgba(0,0,0,.45)] transition duration-700 group-hover:-translate-y-1 group-hover:rotate-[.35deg]">
-        <Image src={project.media[0]} alt={`${project.title} interface`} fill sizes="(max-width: 1024px) 100vw, 55vw" className="object-cover" />
+        <Image src={project.media[0]} alt={`${project.title} interface`} fill sizes="(max-width: 1024px) 100vw, 55vw" quality={62} className="object-cover" />
         <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10" />
-        {isExtension && (
-          <>
-            <div className="absolute left-[29.2%] top-[76.3%] h-[5.2%] w-[10%] rounded-full border-2 border-[#c7ff38] bg-[#c7ff38]/10 shadow-[0_0_24px_rgba(199,255,56,.75)]" />
-            <div className="absolute bottom-4 left-4 rounded-full bg-[#c7ff38] px-3 py-2 font-mono text-[8px] font-bold uppercase tracking-[.14em] text-black shadow-xl sm:text-[9px]">Generate Reply · inside Gmail</div>
-          </>
-        )}
       </div>
       <div className="absolute bottom-5 right-4 h-[43%] w-[48%] overflow-hidden rounded-[1.1rem] border border-white/20 bg-black shadow-[0_24px_70px_rgba(0,0,0,.6)] transition duration-700 group-hover:-translate-x-2 group-hover:translate-y-1 group-hover:-rotate-1 sm:bottom-7 sm:right-7">
-        <Image src={project.media[1]} alt={`${project.title} secondary interface`} fill sizes="(max-width: 1024px) 55vw, 30vw" className="object-cover" />
+        <Image src={project.media[1]} alt={`${project.title} secondary interface`} fill sizes="(max-width: 1024px) 55vw, 30vw" quality={62} className="object-cover" />
         <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
       </div>
-      {project.media[2] && (
-        <div className="absolute bottom-7 left-7 hidden h-[25%] w-[27%] overflow-hidden rounded-xl border border-white/15 bg-black shadow-2xl sm:block">
-          <Image src={project.media[2]} alt={`${project.title} sign in interface`} fill sizes="20vw" className="object-cover" />
-        </div>
-      )}
     </div>
   );
 }
