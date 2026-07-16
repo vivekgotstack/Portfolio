@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { ChevronDown, PawPrint, Power } from "lucide-react";
 
 const pets = [
@@ -36,6 +37,7 @@ const sectionCopy: Record<(typeof pets)[number]["id"], Record<string, string>> =
 type PetId = (typeof pets)[number]["id"];
 
 export function PetCompanion() {
+  const [mounted, setMounted] = useState(false);
   const [enabled, setEnabled] = useState(false);
   const [selected, setSelected] = useState<PetId>("mochi");
   const [pickerOpen, setPickerOpen] = useState(false);
@@ -45,6 +47,7 @@ export function PetCompanion() {
   const currentPet = pets.find((pet) => pet.id === selected) ?? pets[0];
 
   useEffect(() => {
+    setMounted(true);
     const storedPet = window.localStorage.getItem("portfolio-pet") as PetId | null;
     const storedEnabled = window.localStorage.getItem("portfolio-pet-enabled") === "true";
     if (storedPet && pets.some((pet) => pet.id === storedPet)) setSelected(storedPet);
@@ -134,40 +137,42 @@ export function PetCompanion() {
         )}
       </div>
 
-      {enabled && (
-        <div className="pet-stage fixed bottom-3 left-3 z-40 sm:bottom-5 sm:left-5">
+      {mounted && enabled && createPortal(
+        <div className="pet-stage fixed bottom-3 right-3 z-[90] sm:bottom-5 sm:right-5">
           {speechVisible && (
             <button
               type="button"
               onClick={() => setSpeechVisible(false)}
-              className="pet-dialog absolute bottom-[105px] left-2 w-[min(310px,calc(100vw-32px))] rounded-2xl border border-white/15 bg-[#0b0d0b]/95 p-4 text-left shadow-[0_22px_70px_rgba(0,0,0,.55)] backdrop-blur-xl sm:bottom-6 sm:left-[108px] sm:w-80"
+              className="pet-dialog absolute bottom-[112px] right-0 w-[min(320px,calc(100vw-24px))] rounded-2xl border border-white/15 bg-[#0b0d0b]/95 p-4 text-left shadow-[0_22px_70px_rgba(0,0,0,.55)] backdrop-blur-xl sm:bottom-4 sm:right-[108px] sm:w-80"
               aria-label="Dismiss pet message"
             >
               <span className="mb-2 flex items-center gap-2 font-mono text-[8px] font-bold uppercase tracking-[.16em] text-[#c7ff38]"><span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#c7ff38]" /> {currentPet.name} says</span>
               <span className="block text-[12px] leading-5 text-white/70">{sectionCopy[selected][activeSection] ?? sectionCopy[selected].top}</span>
-              <span className="absolute -bottom-2 left-8 h-4 w-4 rotate-45 border-b border-r border-white/15 bg-[#0b0d0b] sm:-left-2 sm:bottom-8 sm:border-b sm:border-l sm:border-r-0" />
+              <span className="absolute -bottom-2 right-8 h-4 w-4 rotate-45 border-b border-r border-white/15 bg-[#0b0d0b] sm:-right-2 sm:bottom-8 sm:border-b sm:border-r sm:border-l-0" />
             </button>
           )}
 
           <button
             type="button"
             onClick={() => setSpeechVisible((value) => !value)}
-            className="pet-shell relative block h-[104px] w-24 rounded-[1.4rem] outline-none focus-visible:ring-2 focus-visible:ring-[#c7ff38]"
+            className="pet-shell relative block h-[104px] w-24 overflow-visible rounded-[1.4rem] outline-none focus-visible:ring-2 focus-visible:ring-[#c7ff38]"
             aria-label={`${currentPet.name}, portfolio guide. Hover for a happy reaction; click to toggle their message.`}
           >
             <span className="pet-sprite absolute inset-0" style={{ backgroundImage: `url(${currentPet.sheet})` }} aria-hidden="true" />
           </button>
-        </div>
+        </div>,
+        document.body,
       )}
 
       <style jsx global>{`
         .pet-sprite,.pet-thumb{background-repeat:no-repeat;background-size:800% 200%;background-position:0 0;image-rendering:pixelated}
-        .pet-sprite{animation:pet-idle 1.1s linear infinite;will-change:background-position}
+        .pet-stage{isolation:isolate;overflow:visible}
+        .pet-sprite{animation:pet-idle 1.1s linear infinite;will-change:background-position;pointer-events:none}
         .pet-thumb{display:block;width:42px;height:46px;background-size:800% 200%}
         .pet-shell:hover .pet-sprite,.pet-shell:focus-visible .pet-sprite{background-position-y:-100%;animation:pet-wave .72s linear infinite}
         .pet-shell:hover{filter:drop-shadow(0 10px 16px rgba(199,255,56,.16))}
-        @keyframes pet-idle{0%,16%{background-position-x:0}16.1%,32%{background-position-x:-100%}32.1%,48%{background-position-x:-200%}48.1%,64%{background-position-x:-300%}64.1%,80%{background-position-x:-400%}80.1%,100%{background-position-x:-500%}}
-        @keyframes pet-wave{0%,24%{background-position-x:0}24.1%,49%{background-position-x:-100%}49.1%,74%{background-position-x:-200%}74.1%,100%{background-position-x:-300%}}
+        @keyframes pet-idle{0%,16%{background-position-x:0}16.1%,32%{background-position-x:14.2857%}32.1%,48%{background-position-x:28.5714%}48.1%,64%{background-position-x:42.8571%}64.1%,80%{background-position-x:57.1429%}80.1%,100%{background-position-x:71.4286%}}
+        @keyframes pet-wave{0%,24%{background-position-x:0}24.1%,49%{background-position-x:14.2857%}49.1%,74%{background-position-x:28.5714%}74.1%,100%{background-position-x:42.8571%}}
         @media(prefers-reduced-motion:reduce){.pet-sprite{animation:none!important;background-position:0 0!important}.pet-shell:hover .pet-sprite,.pet-shell:focus-visible .pet-sprite{background-position:0 -100%!important}}
       `}</style>
     </>
