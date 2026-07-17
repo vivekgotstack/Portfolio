@@ -21,15 +21,15 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Vivek Nigam | Full Stack Developer",
   description:
-    "Final-year B.Tech Computer Science student and Full Stack Developer from India, working with Java, Spring Boot, React, and modern web technologies.",
+    "Full-stack engineer from India building secure Java and Spring Boot backends, polished React interfaces, and production infrastructure.",
   keywords: [
     "Vivek Nigam",
     "Full Stack Developer",
     "Java Developer",
     "Spring Boot Developer",
     "React Developer",
-    "B.Tech CSE",
-    "Student Developer",
+    "Full Stack Engineer",
+    "Software Engineer",
     "Backend Developer",
     "Frontend Developer",
     "Developer Portfolio",
@@ -48,14 +48,14 @@ export const metadata: Metadata = {
     locale: "en_IN",
     title: "Vivek Nigam | Full Stack Developer",
     description:
-      "Final-year Computer Science student and Full Stack Developer skilled in Java, Spring Boot, React, and databases.",
+      "Full-stack engineer building secure backends, polished interfaces, and production infrastructure end to end.",
     siteName: "Vivek Nigam Portfolio",
   },
   twitter: {
     card: "summary_large_image",
     title: "Vivek Nigam | Full Stack Developer",
     description:
-      "Final-year B.Tech CSE student and Full Stack Developer from India.",
+      "Full-stack engineer building secure Java backends, polished React interfaces, and production infrastructure.",
   },
 };
 

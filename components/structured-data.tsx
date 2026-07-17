@@ -8,9 +8,9 @@ export default function StructuredData() {
       "@context": "https://schema.org",
       "@type": "Person",
       name: "Vivek Nigam",
-      jobTitle: "Final Year B.Tech Student & Full Stack Developer",
+      jobTitle: "Full Stack Developer",
       description:
-        "Final-year B.Tech Computer Science student and Full Stack Developer from India, focused on building scalable web applications using Java, Spring Boot, React, and modern databases.",
+        "Full-stack engineer from India focused on building scalable applications with Java, Spring Boot, React, and modern databases.",
       url: "",
       image: "/pfp.jpg",
       email: "vivekni1224@gmail.com",
