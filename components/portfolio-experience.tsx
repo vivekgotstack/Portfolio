@@ -47,7 +47,7 @@ function Reveal({ children, className = "" }: { children: React.ReactNode; class
 
 function SystemCore() {
   return (
-    <div className="relative mx-auto aspect-square w-full max-w-[520px] select-none" aria-hidden="true">
+    <div className="relative mx-auto aspect-square w-full max-w-130 select-none" aria-hidden="true">
       <div className="absolute inset-[10%] rounded-full bg-[#c7ff38]/8 blur-3xl" />
       <div className="absolute inset-[13%] animate-[spin_24s_linear_infinite] rounded-full border border-dashed border-white/15" />
       <div className="absolute inset-[23%] animate-[spin_16s_linear_infinite_reverse] rounded-full border border-[#c7ff38]/30 shadow-[0_0_80px_rgba(199,255,56,.08)]" />
@@ -66,8 +66,8 @@ function SystemCore() {
 function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
   if (!project.media.length) {
     return (
-      <div className="relative flex min-h-[340px] items-end overflow-hidden bg-[#111410] p-7 sm:min-h-[420px] sm:p-9">
-        <div className="absolute inset-0 opacity-50 [background-image:linear-gradient(135deg,transparent_48%,rgba(199,255,56,.1)_49%,rgba(199,255,56,.1)_51%,transparent_52%)] [background-size:42px_42px]" />
+      <div className="relative flex min-h-85 items-end overflow-hidden bg-[#111410] p-7 sm:min-h-105 sm:p-9">
+        <div className="absolute inset-0 opacity-50 bg-[linear-gradient(135deg,transparent_48%,rgba(199,255,56,.1)_49%,rgba(199,255,56,.1)_51%,transparent_52%)] bg-size-[42px_42px]" />
         <div className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#c7ff38]/20 shadow-[0_0_80px_rgba(199,255,56,.08)]" />
         <div className="absolute left-1/2 top-1/2 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-[#c7ff38]/50" />
         <div className="relative flex w-full items-end justify-between">
@@ -79,8 +79,8 @@ function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
   }
 
   return (
-    <div className="relative min-h-[390px] overflow-hidden bg-[#0d100d] p-4 sm:min-h-[460px] sm:p-7">
-      <div className="absolute inset-0 opacity-[.04] [background-image:linear-gradient(rgba(255,255,255,.5)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.5)_1px,transparent_1px)] [background-size:28px_28px]" />
+    <div className="relative min-h-97.5 overflow-hidden bg-[#0d100d] p-4 sm:min-h-115 sm:p-7">
+      <div className="absolute inset-0 opacity-[.04] bg-[linear-gradient(rgba(255,255,255,.5)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.5)_1px,transparent_1px)] bg-size-[28px_28px]" />
       <div className="relative h-[72%] overflow-hidden rounded-[1.25rem] border border-white/15 bg-black shadow-[0_24px_70px_rgba(0,0,0,.45)] transition duration-700 group-hover:-translate-y-1 group-hover:rotate-[.35deg]">
         <Image src={project.media[0]} alt={`${project.title} interface`} fill sizes="(max-width: 1024px) 100vw, 55vw" quality={62} className="object-cover" />
         <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10" />
@@ -100,8 +100,8 @@ export function PortfolioExperience() {
 
   return (
     <div ref={container} className="min-h-screen overflow-hidden bg-[#080a08] text-[#f2f4eb] selection:bg-[#c7ff38] selection:text-black">
-      <motion.div style={{ width: progress }} className="fixed left-0 top-0 z-[100] h-[2px] bg-[#c7ff38] shadow-[0_0_14px_#c7ff38]" />
-      <div className="pointer-events-none fixed inset-0 z-0 opacity-[.035] [background-image:linear-gradient(rgba(255,255,255,.5)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.5)_1px,transparent_1px)] [background-size:48px_48px]" />
+      <motion.div style={{ width: progress }} className="fixed left-0 top-0 z-100 h-0.5 bg-[#c7ff38] shadow-[0_0_14px_#c7ff38]" />
+      <div className="pointer-events-none fixed inset-0 z-0 opacity-[.035] bg-[linear-gradient(rgba(255,255,255,.5)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.5)_1px,transparent_1px)] bg-size-[48px_48px]" />
       <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(circle_at_50%_-10%,rgba(199,255,56,.09),transparent_35%)]" />
 
       <nav className="fixed left-1/2 top-4 z-50 flex w-[calc(100%-24px)] max-w-6xl -translate-x-1/2 items-center justify-between rounded-full border border-white/10 bg-black/55 px-4 py-3 backdrop-blur-xl sm:px-5">
@@ -111,7 +111,7 @@ export function PortfolioExperience() {
       </nav>
 
       <main className="relative z-10">
-        <section id="top" className="mx-auto grid min-h-screen max-w-[1440px] items-center gap-8 px-5 pb-14 pt-28 lg:grid-cols-[1.08fr_.92fr] lg:px-12">
+        <section id="top" className="mx-auto grid min-h-screen max-w-360 items-center gap-8 px-5 pb-14 pt-28 lg:grid-cols-[1.08fr_.92fr] lg:px-12">
           <div>
             <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .2 }} className="mb-7 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[.25em] text-[#c7ff38]"><Zap className="h-3 w-3" /> Full-stack engineer / India</motion.p>
             <motion.h1 initial={{ opacity: 0, y: 45 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .9, ease: [0.22, 1, 0.36, 1] }} className="max-w-4xl text-[clamp(4rem,9vw,9rem)] font-semibold leading-[.78] tracking-[-.085em]">
@@ -133,22 +133,22 @@ export function PortfolioExperience() {
           </div>
         </div>
 
-        <section id="about" className="mx-auto max-w-[1440px] px-5 py-28 lg:px-12 lg:py-40">
+        <section id="about" className="mx-auto max-w-360 px-5 py-28 lg:px-12 lg:py-40">
           <Reveal><div className="mb-16 grid gap-8 lg:grid-cols-2"><p className="font-mono text-[10px] uppercase tracking-[.22em] text-[#c7ff38]">[ 01 — PROFILE ]</p><h2 className="text-4xl font-medium leading-[1.05] tracking-[-.05em] sm:text-6xl">Not just writing code.<br /><span className="text-white/30">Owning the outcome.</span></h2></div></Reveal>
           <div className="grid gap-4 md:grid-cols-12">
-            <Reveal className="md:col-span-7"><div className="relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-white/[.035] p-7 sm:min-h-80 sm:p-10"><p className="relative z-10 max-w-xl text-xl leading-relaxed tracking-[-.025em] text-white/75 sm:text-2xl">I work across the stack because great products break at the seams. From database design and authentication to interaction details and production deployment, I connect the whole system.</p><div className="relative z-10 mt-10 flex flex-wrap gap-2 sm:absolute sm:bottom-8 sm:left-8 sm:mt-0">{["Architecture", "API design", "Interface craft", "Deployment"].map(x => <span key={x} className="rounded-full border border-white/10 px-3 py-2 font-mono text-[9px] uppercase tracking-wider text-white/45">{x}</span>)}</div><div className="absolute -bottom-20 -right-20 h-64 w-64 rounded-full bg-[#c7ff38]/10 blur-3xl" /></div></Reveal>
-            <Reveal className="md:col-span-5"><div className="grid h-full grid-cols-1 gap-4 sm:grid-cols-2"><div className="rounded-[2rem] border border-white/10 bg-[#c7ff38] p-6 text-black"><p className="font-mono text-[9px] uppercase tracking-widest">Primary runtime</p><p className="mt-14 text-5xl font-semibold tracking-[-.06em]">Java<span className="text-black/35">21</span></p></div><div className="rounded-[2rem] border border-white/10 bg-white/[.035] p-6"><p className="font-mono text-[9px] uppercase tracking-widest text-white/35">Current role</p><p className="mt-14 text-xl font-medium">Web Developer</p><p className="mt-1 text-xs text-white/40">UP24Network</p></div><div className="flex items-center justify-between rounded-[2rem] border border-white/10 bg-white/[.035] p-6 sm:col-span-2"><div><p className="font-mono text-[9px] uppercase tracking-widest text-white/35">Location</p><p className="mt-2 flex items-center gap-2 text-lg"><MapPin className="h-4 w-4 text-[#c7ff38]" /> India / Remote</p></div><Image src="/pfp.jpg" width={72} height={72} alt="Vivek Nigam" className="h-16 w-16 rounded-full border border-white/15 object-cover grayscale transition hover:grayscale-0" /></div></div></Reveal>
+            <Reveal className="md:col-span-7"><div className="relative flex h-full flex-col overflow-hidden rounded-4xl border border-white/10 bg-white/[.035] p-7 sm:min-h-80 sm:p-10"><p className="relative z-10 max-w-xl text-xl leading-relaxed tracking-[-.025em] text-white/75 sm:text-2xl">I work across the stack because great products break at the seams. From database design and authentication to interaction details and production deployment, I connect the whole system.</p><div className="relative z-10 mt-10 flex flex-wrap gap-2 sm:absolute sm:bottom-8 sm:left-8 sm:mt-0">{["Architecture", "API design", "Interface craft", "Deployment"].map(x => <span key={x} className="rounded-full border border-white/10 px-3 py-2 font-mono text-[9px] uppercase tracking-wider text-white/45">{x}</span>)}</div><div className="absolute -bottom-20 -right-20 h-64 w-64 rounded-full bg-[#c7ff38]/10 blur-3xl" /></div></Reveal>
+            <Reveal className="md:col-span-5"><div className="grid h-full grid-cols-1 gap-4 sm:grid-cols-2"><div className="rounded-4xl border border-white/10 bg-[#c7ff38] p-6 text-black"><p className="font-mono text-[9px] uppercase tracking-widest">Primary runtime</p><p className="mt-14 text-5xl font-semibold tracking-[-.06em]">Java<span className="text-black/35">21</span></p></div><div className="rounded-4xl border border-white/10 bg-white/[.035] p-6"><p className="font-mono text-[9px] uppercase tracking-widest text-white/35">Current role</p><p className="mt-14 text-xl font-medium">Web Developer</p><p className="mt-1 text-xs text-white/40">UP24Network</p></div><div className="flex items-center justify-between rounded-4xl border border-white/10 bg-white/[.035] p-6 sm:col-span-2"><div><p className="font-mono text-[9px] uppercase tracking-widest text-white/35">Location</p><p className="mt-2 flex items-center gap-2 text-lg"><MapPin className="h-4 w-4 text-[#c7ff38]" /> India / Remote</p></div><Image src="/pfp.jpg" width={72} height={72} alt="Vivek Nigam" className="h-16 w-16 rounded-full border border-white/15 object-cover grayscale transition hover:grayscale-0" /></div></div></Reveal>
           </div>
         </section>
 
         <section id="work" className="border-t border-white/10 py-28 lg:py-40">
-          <div className="mx-auto max-w-[1440px] px-5 lg:px-12">
+          <div className="mx-auto max-w-360 px-5 lg:px-12">
             <Reveal><div className="mb-16 flex items-end justify-between"><div><p className="mb-5 font-mono text-[10px] uppercase tracking-[.22em] text-[#c7ff38]">[ 02 — SELECTED WORK ]</p><h2 className="text-5xl font-medium tracking-[-.06em] sm:text-7xl">Proof, not promises.</h2></div><span className="hidden font-mono text-[10px] text-white/25 sm:block">04 PRODUCTION BUILDS</span></div></Reveal>
             <div className="space-y-4">
               {projects.map((project) => (
                 <Reveal key={project.title}>
-                  <a href={project.href} target="_blank" rel="noreferrer" className="group grid overflow-hidden rounded-[2rem] border border-white/10 bg-white/[.025] transition duration-500 hover:border-white/25 hover:bg-white/[.045] lg:grid-cols-[.82fr_1.18fr]">
-                    <div className="flex min-h-[390px] flex-col justify-between p-7 sm:p-10 lg:min-h-[460px]">
+                  <a href={project.href} target="_blank" rel="noreferrer" className="group grid overflow-hidden rounded-4xl border border-white/10 bg-white/2.5 transition duration-500 hover:border-white/25 hover:bg-white/4.5 lg:grid-cols-[.82fr_1.18fr]">
+                    <div className="flex min-h-97.5 flex-col justify-between p-7 sm:p-10 lg:min-h-115">
                       <div>
                         <div className="mb-10 flex items-center justify-between">
                           <span className="font-mono text-[10px] text-white/30">{project.n}</span>
@@ -168,16 +168,16 @@ export function PortfolioExperience() {
           </div>
         </section>
 
-        <section id="experience" className="mx-auto grid max-w-[1440px] gap-12 px-5 py-28 lg:grid-cols-[.7fr_1.3fr] lg:px-12 lg:py-40">
+        <section id="experience" className="mx-auto grid max-w-360 gap-12 px-5 py-28 lg:grid-cols-[.7fr_1.3fr] lg:px-12 lg:py-40">
           <Reveal><div className="lg:sticky lg:top-28"><p className="mb-5 font-mono text-[10px] uppercase tracking-[.22em] text-[#c7ff38]">[ 03 — EXPERIENCE ]</p><h2 className="text-5xl font-medium tracking-[-.06em]">Field<br />notes.</h2></div></Reveal>
           <div className="relative pl-10">
-            <div className="absolute bottom-10 left-[7px] top-10 w-px bg-white/10">
-              <motion.div initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }} className="h-full w-px origin-top bg-gradient-to-b from-[#c7ff38] via-[#c7ff38]/60 to-[#c7ff38]/20" />
+            <div className="absolute bottom-10 left-1.75 top-10 w-px bg-white/10">
+              <motion.div initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }} className="h-full w-px origin-top bg-linear-to-b from-[#c7ff38] via-[#c7ff38]/60 to-[#c7ff38]/20" />
             </div>
             {experience.map((job, i) => (
               <Reveal key={job.company}>
                 <div className="relative grid gap-5 border-t border-white/10 py-10 sm:grid-cols-[1fr_1fr]">
-                  <span className={`absolute -left-[40px] top-10 grid h-4 w-4 place-items-center rounded-full border ${i === 0 ? "border-[#c7ff38] bg-[#c7ff38] shadow-[0_0_20px_rgba(199,255,56,.55)]" : "border-white/25 bg-[#080a08]"}`}>
+                  <span className={`absolute -left-10 top-10 grid h-4 w-4 place-items-center rounded-full border ${i === 0 ? "border-[#c7ff38] bg-[#c7ff38] shadow-[0_0_20px_rgba(199,255,56,.55)]" : "border-white/25 bg-[#080a08]"}`}>
                     {i === 0 && <span className="h-1.5 w-1.5 rounded-full bg-black" />}
                   </span>
                   <div><p className="font-mono text-[9px] text-[#c7ff38]">0{i + 1} / {job.period}</p><h3 className="mt-3 text-2xl font-medium">{job.company}</h3><p className="text-sm text-white/35">{job.role}</p></div>
@@ -189,14 +189,14 @@ export function PortfolioExperience() {
         </section>
 
         <section id="contact" className="border-t border-white/10">
-          <div className="mx-auto grid max-w-[1440px] gap-12 px-5 py-28 lg:grid-cols-[.8fr_1.2fr] lg:px-12 lg:py-40">
+          <div className="mx-auto grid max-w-360 gap-12 px-5 py-28 lg:grid-cols-[.8fr_1.2fr] lg:px-12 lg:py-40">
             <Reveal><div><p className="mb-6 font-mono text-[10px] uppercase tracking-[.22em] text-[#c7ff38]">[ 04 — CONTACT ]</p><h2 className="text-6xl font-semibold leading-[.85] tracking-[-.075em] sm:text-8xl">LET&apos;S<br /><span className="font-serif font-normal italic text-white/25">make</span><br />IMPACT.</h2><a href="mailto:vivekgotstack@gmail.com" className="mt-9 inline-flex items-center gap-3 border-b border-[#c7ff38]/40 pb-2 text-sm text-[#c7ff38]">vivekgotstack@gmail.com <MoveRight className="h-4 w-4" /></a></div></Reveal>
             <Reveal><ContactForm /></Reveal>
           </div>
         </section>
       </main>
 
-      <footer className="relative z-10 border-t border-white/10 px-5 py-8 lg:px-12"><div className="mx-auto flex max-w-[1344px] flex-col gap-5 font-mono text-[9px] uppercase tracking-[.15em] text-white/30 sm:flex-row sm:items-center sm:justify-between"><p>© 2026 Vivek Nigam / Engineered end to end</p><div className="flex gap-5"><a href="https://github.com/vivekgotstack" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-white"><Github className="h-3.5 w-3.5" /> GitHub</a><a href="mailto:vivekgotstack@gmail.com" className="flex items-center gap-2 hover:text-white"><Mail className="h-3.5 w-3.5" /> Email</a><a href="https://www.linkedin.com/in/randomvivek/" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-white"><Linkedin className="h-3.5 w-3.5" /> LinkedIn</a><span className="hidden w-[58px] shrink-0 sm:block" aria-hidden="true" /></div></div></footer>
+      <footer className="relative z-10 border-t border-white/10 px-5 py-8 lg:px-12"><div className="mx-auto flex max-w-336 flex-col gap-5 font-mono text-[9px] uppercase tracking-[.15em] text-white/30 sm:flex-row sm:items-center sm:justify-between"><p>© 2026 Vivek Nigam / Engineered end to end</p><div className="flex gap-5"><a href="https://github.com/vivekgotstack" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-white"><Github className="h-3.5 w-3.5" /> GitHub</a><a href="mailto:vivekgotstack@gmail.com" className="flex items-center gap-2 hover:text-white"><Mail className="h-3.5 w-3.5" /> Email</a><a href="https://www.linkedin.com/in/randomvivek/" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-white"><Linkedin className="h-3.5 w-3.5" /> LinkedIn</a><span className="hidden w-14.5 shrink-0 sm:block" aria-hidden="true" /></div></div></footer>
 
       <style jsx global>{`@keyframes marquee{to{transform:translateX(-50%)}} @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}`}</style>
     </div>
