@@ -66,13 +66,22 @@ function SystemCore() {
 function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
   if (!project.media.length) {
     return (
-      <div className="relative flex min-h-85 items-end overflow-hidden bg-[#111410] p-7 sm:min-h-105 sm:p-9">
-        <div className="absolute inset-0 opacity-50 bg-[linear-gradient(135deg,transparent_48%,rgba(199,255,56,.1)_49%,rgba(199,255,56,.1)_51%,transparent_52%)] bg-size-[42px_42px]" />
-        <div className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#c7ff38]/20 shadow-[0_0_80px_rgba(199,255,56,.08)]" />
-        <div className="absolute left-1/2 top-1/2 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-[#c7ff38]/50" />
-        <div className="relative flex w-full items-end justify-between">
-          <div><p className="font-mono text-[9px] uppercase tracking-[.2em] text-[#c7ff38]">Visual slot reserved</p><p className="mt-2 text-xl font-medium">ModaStitch product film</p></div>
-          <span className="rounded-full border border-white/10 px-3 py-2 font-mono text-[8px] uppercase tracking-wider text-white/35">Incoming</span>
+      <div className="relative min-h-85 overflow-hidden bg-[#111410] sm:min-h-105">
+        <video
+          className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-[1.015]"
+          src="/projects/modastitch.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-label="ModaStitch product film"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/65 via-transparent to-black/10" />
+        <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10" />
+        <div className="absolute bottom-0 left-0 flex w-full items-end justify-between p-7 sm:p-9">
+          <div><p className="font-mono text-[9px] uppercase tracking-[.2em] text-[#c7ff38]">Production showcase</p><p className="mt-2 text-xl font-medium">ModaStitch product film</p></div>
+          <span className="rounded-full border border-white/15 bg-black/35 px-3 py-2 font-mono text-[8px] uppercase tracking-wider text-white/60 backdrop-blur">Live</span>
         </div>
       </div>
     );
