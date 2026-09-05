@@ -49,18 +49,18 @@ export function ContactForm() {
       <div className="relative">
         <div className="mb-10 flex items-start justify-between">
           <div>
-            <p className="mb-3 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.24em] text-[#c7ff38]"><Radio className="h-3 w-3 animate-pulse" /> Secure transmission</p>
+            <p className="mb-3 flex items-center gap-2 font-sans text-[10px] uppercase tracking-[0.24em] text-[#c7ff38]"><Radio className="h-3 w-3 animate-pulse" /> Secure transmission</p>
             <h3 className="text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">Initialize a conversation.</h3>
           </div>
-          <span className="font-mono text-[10px] text-white/30">MSG_001</span>
+          <span className="font-sans text-[10px] text-white/30">MSG_001</span>
         </div>
 
         <input type="text" name="_honey" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
         <div className="grid gap-7 sm:grid-cols-2">
-          <label className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/40">Your name<input className={input} name="name" placeholder="Jane Smith" required maxLength={80} /></label>
-          <label className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/40">Email channel<input className={input} name="email" type="email" placeholder="jane@company.com" required maxLength={120} /></label>
+          <label className="font-sans text-[10px] uppercase tracking-[0.18em] text-white/40">Your name<input className={input} name="name" placeholder="Jane Smith" required maxLength={80} /></label>
+          <label className="font-sans text-[10px] uppercase tracking-[0.18em] text-white/40">Email channel<input className={input} name="email" type="email" placeholder="jane@company.com" required maxLength={120} /></label>
         </div>
-        <label className="mt-7 block font-mono text-[10px] uppercase tracking-[0.18em] text-white/40">The brief<textarea className={`${input} min-h-32 resize-y`} name="message" placeholder="Project, role, wild idea — send it over…" required maxLength={4000} /></label>
+        <label className="mt-7 block font-sans text-[10px] uppercase tracking-[0.18em] text-white/40">The brief<textarea className={`${input} min-h-32 resize-y`} name="message" placeholder="Project, role, wild idea — send it over…" required maxLength={4000} /></label>
 
         <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
           <button disabled={status === "sending" || status === "sent"} className="group inline-flex h-13 items-center justify-between gap-10 rounded-full bg-[#c7ff38] px-6 text-[11px] font-bold uppercase tracking-[0.12em] text-[#080a08] transition hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(199,255,56,.2)] disabled:cursor-not-allowed disabled:opacity-60">

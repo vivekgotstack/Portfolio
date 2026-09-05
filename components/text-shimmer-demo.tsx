@@ -2,7 +2,7 @@ import { TextShimmer } from "@/components/ui/text-shimmer";
 
 function TextShimmerBasic() {
   return (
-    <TextShimmer className="font-mono text-sm" duration={1}>
+    <TextShimmer className="font-sans text-sm" duration={1}>
       Generating code...
     </TextShimmer>
   );

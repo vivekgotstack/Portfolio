@@ -137,7 +137,7 @@ export function PetCompanion() {
           onClick={togglePets}
           disabled={isJumping}
           aria-pressed={enabled}
-          className={`inline-flex h-9 items-center gap-2 rounded-full border px-3 font-mono text-[8px] font-bold uppercase tracking-[.13em] transition ${enabled ? "border-[#c7ff38]/45 bg-[#c7ff38]/10 text-[#c7ff38]" : "border-white/12 text-white/45 hover:border-white/25 hover:text-white"}`}
+          className={`inline-flex h-9 items-center gap-2 rounded-full border px-3 font-sans text-[8px] font-bold uppercase tracking-[.13em] transition ${enabled ? "border-[#c7ff38]/45 bg-[#c7ff38]/10 text-[#c7ff38]" : "border-white/12 text-white/45 hover:border-white/25 hover:text-white"}`}
         >
           <Power className="h-3 w-3" /> Pet {enabled ? "on" : "off"}
         </button>
@@ -148,7 +148,7 @@ export function PetCompanion() {
             onClick={() => setPickerOpen((value) => !value)}
             disabled={isJumping}
             aria-expanded={pickerOpen}
-            className="inline-flex h-9 items-center gap-1.5 rounded-full border border-white/12 px-2.5 font-mono text-[8px] uppercase tracking-[.12em] text-white/65 transition hover:border-white/25 hover:text-white sm:px-3"
+            className="inline-flex h-9 items-center gap-1.5 rounded-full border border-white/12 px-2.5 font-sans text-[8px] uppercase tracking-[.12em] text-white/65 transition hover:border-white/25 hover:text-white sm:px-3"
           >
             <PawPrint className="h-3 w-3 text-[#c7ff38]" /> <span className="hidden sm:inline">{currentPet.name}</span> <ChevronDown className="h-3 w-3" />
           </button>
@@ -156,7 +156,7 @@ export function PetCompanion() {
 
         {enabled && pickerOpen && (
           <div className="absolute right-0 top-12 w-64 overflow-hidden rounded-2xl border border-white/12 bg-[#0b0d0b]/95 p-2 shadow-[0_24px_80px_rgba(0,0,0,.55)] backdrop-blur-xl">
-            <p className="px-3 pb-2 pt-1 font-mono text-[8px] uppercase tracking-[.16em] text-white/30">Choose your guide</p>
+            <p className="px-3 pb-2 pt-1 font-sans text-[8px] uppercase tracking-[.16em] text-white/30">Choose your guide</p>
             {pets.map((pet) => (
               <button
                 key={pet.id}
@@ -166,7 +166,7 @@ export function PetCompanion() {
                 className={`flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left transition ${selected === pet.id ? "bg-[#c7ff38]/10" : "hover:bg-white/[.05]"}`}
               >
                 <span className="pet-thumb" style={{ backgroundImage: `url(${pet.sheet})` }} aria-hidden="true" />
-                <span><span className="block text-sm font-semibold">{pet.name}</span><span className="font-mono text-[8px] uppercase tracking-[.12em] text-white/35">{pet.type}</span></span>
+                <span><span className="block text-sm font-semibold">{pet.name}</span><span className="font-sans text-[8px] uppercase tracking-[.12em] text-white/35">{pet.type}</span></span>
                 {selected === pet.id && <span className="ml-auto h-1.5 w-1.5 rounded-full bg-[#c7ff38] shadow-[0_0_10px_#c7ff38]" />}
               </button>
             ))}
@@ -183,7 +183,7 @@ export function PetCompanion() {
               className="pet-dialog absolute bottom-[112px] right-0 w-[min(280px,calc(100vw-24px))] rounded-2xl border border-white/15 bg-[#0b0d0b]/95 p-3.5 text-left shadow-[0_22px_70px_rgba(0,0,0,.55)] backdrop-blur-xl"
               aria-label="Dismiss pet message"
             >
-              <span className="mb-2 flex items-center gap-2 font-mono text-[8px] font-bold uppercase tracking-[.16em] text-[#c7ff38]"><span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#c7ff38]" /> {currentPet.name} says</span>
+              <span className="mb-2 flex items-center gap-2 font-sans text-[8px] font-bold uppercase tracking-[.16em] text-[#c7ff38]"><span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#c7ff38]" /> {currentPet.name} says</span>
               <span className="block text-[11px] leading-[1.55] text-white/70">{dialogue}</span>
               <span className="absolute -bottom-2 right-8 h-4 w-4 rotate-45 border-b border-r border-white/15 bg-[#0b0d0b]" />
             </button>
