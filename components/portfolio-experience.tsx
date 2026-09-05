@@ -12,25 +12,25 @@ const projects = [
   {
     n: "01", title: "ModaStitch", type: "Production commerce system", color: "#c7ff38",
     copy: "A full-stack fashion platform engineered from database to deployment: secure JWT flows, Spring Boot services, Neon PostgreSQL, and an NGINX-managed Ubuntu VPS.",
-    tags: ["Java 21", "Spring Boot", "PostgreSQL", "Next.js", "NGINX"], href: "https://modastitch.com", media: [],
+    tags: ["Java 21", "Spring Boot", "PostgreSQL", "Next.js", "NGINX"], href: "https://modastitch.com", logo: "/projects/modastitch-logo.png", media: [],
   },
   {
-    n: "02", title: "DamnTodo", type: "Offline planning system", color: "#8ec5ff",
-    copy: "A private, offline-first planner that turns long-term goals into realistic scheduled roadmaps, protects time blocks, tracks streaks, recovers missed work, and delivers native Android alarms.",
-    tags: ["Next.js 16", "React 19", "TypeScript", "IndexedDB", "Capacitor"], href: "https://damntodo.viveknigam.co.in",
-    media: ["/projects/damntodo-schedule.png", "/projects/damntodo-roadmap.png"],
+    n: "02", title: "ChatSaver", type: "Local-first knowledge platform", color: "#ff5a6f",
+    copy: "A private knowledge workspace with offline-first notes, selective ChatGPT imports, real-time cross-device sync, encrypted vaults, and connected workflows across web, PWA, and desktop.",
+    tags: ["Next.js 16", "Spring Boot", "IndexedDB", "PostgreSQL", "Tauri 2"], href: "https://chatsaver.viveknigam.co.in", logo: "/projects/chatsaver-logo.png",
+    media: ["/projects/chatsaver-vault.png", "/projects/chatsaver-integrations.png"],
   },
   {
     n: "03", title: "Email ReplyCraft", type: "AI productivity platform", color: "#b49cff",
     copy: "AI-assisted email writing with selectable tone, generation history, refresh-token auth, and a browser extension that works directly inside Gmail.",
-    tags: ["OpenRouter", "Chrome Extension", "JWT", "React", "PostgreSQL"], href: "https://email-reply-craft.vercel.app/",
+    tags: ["OpenRouter", "Chrome Extension", "JWT", "React", "PostgreSQL"], href: "https://email-reply-craft.vercel.app/", logo: "/projects/replycraft-logo.svg",
     media: ["/projects/replycraft-extension.png", "/projects/replycraft-generator.png"],
   },
   {
-    n: "04", title: "ChatSaver", type: "Local-first knowledge platform", color: "#ff5a6f",
-    copy: "A private knowledge workspace with offline-first notes, selective ChatGPT imports, real-time cross-device sync, encrypted vaults, and connected workflows across web, PWA, and desktop.",
-    tags: ["Next.js 16", "Spring Boot", "IndexedDB", "PostgreSQL", "Tauri 2"], href: "https://chatsaver.viveknigam.co.in",
-    media: ["/projects/chatsaver-vault.png", "/projects/chatsaver-integrations.png"],
+    n: "04", title: "DamnTodo", type: "Offline planning system", color: "#8ec5ff",
+    copy: "A private, offline-first planner that turns long-term goals into realistic scheduled roadmaps, protects time blocks, tracks streaks, recovers missed work, and delivers native Android alarms.",
+    tags: ["Next.js 16", "React 19", "TypeScript", "IndexedDB", "Capacitor"], href: "https://damntodo.viveknigam.co.in", logo: "/projects/damntodo-logo.png",
+    media: ["/projects/damntodo-schedule.png", "/projects/damntodo-dashboard.png"],
   },
 ];
 
@@ -160,7 +160,12 @@ export function PortfolioExperience() {
                     <div className="flex min-h-97.5 flex-col justify-between p-7 sm:p-10 lg:min-h-115">
                       <div>
                         <div className="mb-10 flex items-center justify-between">
-                          <span className="font-mono text-[10px] text-white/30">{project.n}</span>
+                          <div className="flex items-center gap-3">
+                            <span className="relative grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-2xl border border-white/12 bg-white/[.055] p-1.5 shadow-[0_10px_30px_rgba(0,0,0,.25)]">
+                              <Image src={project.logo} alt="" width={48} height={48} className="h-full w-full object-contain" />
+                            </span>
+                            <span className="font-mono text-[10px] text-white/30">{project.n}</span>
+                          </div>
                           <span className="grid h-11 w-11 place-items-center rounded-full border border-white/10 transition duration-500 group-hover:rotate-45 group-hover:border-white/30" style={{ color: project.color }}><ArrowUpRight className="h-5 w-5" /></span>
                         </div>
                         <p className="mb-3 font-mono text-[9px] uppercase tracking-[.18em]" style={{ color: project.color }}>{project.type}</p>
