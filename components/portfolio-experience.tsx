@@ -27,10 +27,10 @@ const projects = [
     media: ["/projects/replycraft-extension.png", "/projects/replycraft-generator.png"],
   },
   {
-    n: "04", title: "WanderWise", type: "Travel planning experience", color: "#ff9f7a",
-    copy: "A responsive travel discovery platform pairing a polished interface with a Spring data layer, Firebase authentication, and real booking flows.",
-    tags: ["Spring Data", "Firebase", "React", "REST API", "Responsive UI"], href: "https://wanderwise-lime.vercel.app/",
-    media: ["/projects/wanderwise-buses.png", "/projects/wanderwise-flights.png"],
+    n: "04", title: "ChatSaver", type: "Local-first knowledge platform", color: "#ff5a6f",
+    copy: "A private knowledge workspace with offline-first notes, selective ChatGPT imports, real-time cross-device sync, encrypted vaults, and connected workflows across web, PWA, and desktop.",
+    tags: ["Next.js 16", "Spring Boot", "IndexedDB", "PostgreSQL", "Tauri 2"], href: "https://chatsaver.viveknigam.co.in",
+    media: ["/projects/chatsaver-vault.png", "/projects/chatsaver-integrations.png"],
   },
 ];
 
