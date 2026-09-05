@@ -161,7 +161,7 @@ export function PortfolioExperience() {
                       <div>
                         <div className="mb-10 flex items-center justify-between">
                           <div className="flex items-center gap-3">
-                            <span className="relative grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-2xl border border-white/12 bg-white/[.055] p-1.5 shadow-[0_10px_30px_rgba(0,0,0,.25)]">
+                            <span className="relative grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-2xl border border-white/20 bg-white p-1.5 shadow-[0_10px_30px_rgba(0,0,0,.25)]">
                               <Image src={project.logo} alt="" width={48} height={48} className="h-full w-full object-contain" />
                             </span>
                             <span className="font-mono text-[10px] text-white/30">{project.n}</span>
