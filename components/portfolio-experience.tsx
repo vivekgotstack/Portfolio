@@ -15,10 +15,10 @@ const projects = [
     tags: ["Java 21", "Spring Boot", "PostgreSQL", "Next.js", "NGINX"], href: "https://modastitch.com", media: [],
   },
   {
-    n: "02", title: "CoinTracker", type: "Finance intelligence platform", color: "#79e8ff",
-    copy: "Personal finance infrastructure with protected user data, analytical dashboards, paginated transaction history, filtering, and a focused responsive interface.",
-    tags: ["Spring Security", "React", "TypeScript", "JPA", "Analytics"], href: "https://cointracker-pwa.vercel.app/",
-    media: ["/projects/cointracker-analytics.png", "/projects/cointracker-dashboard.png"],
+    n: "02", title: "DamnTodo", type: "Offline planning system", color: "#8ec5ff",
+    copy: "A private, offline-first planner that turns long-term goals into realistic scheduled roadmaps, protects time blocks, tracks streaks, recovers missed work, and delivers native Android alarms.",
+    tags: ["Next.js 16", "React 19", "TypeScript", "IndexedDB", "Capacitor"], href: "https://damntodo.viveknigam.co.in",
+    media: ["/projects/damntodo-schedule.png", "/projects/damntodo-roadmap.png"],
   },
   {
     n: "03", title: "Email ReplyCraft", type: "AI productivity platform", color: "#b49cff",
