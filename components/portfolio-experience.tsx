@@ -35,7 +35,7 @@ const projects = [
 ];
 
 const experience = [
-  { company: "UP24Network", role: "Web Developer", period: "2026 — NOW", text: "Shipping a full-stack commerce platform to production across Vercel, Ubuntu VPS, NGINX, Neon PostgreSQL, and a secured Spring Boot backend." },
+  { company: "UP24Network", role: "Web Developer", period: "2026 to present", text: "Shipping a full-stack commerce platform to production across Vercel, Ubuntu VPS, NGINX, Neon PostgreSQL, and a secured Spring Boot backend." },
   { company: "TrainX", role: "Apprentice", period: "2025", text: "Intensive on-site engineering program focused on Java, data structures, databases, and building practical software systems." },
 ];
 
@@ -123,13 +123,13 @@ export function PortfolioExperience() {
         <section id="top" className="mx-auto grid min-h-screen max-w-360 items-center gap-8 px-5 pb-14 pt-28 lg:grid-cols-[1.08fr_.92fr] lg:px-12">
           <div>
             <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .2 }} className="mb-7 flex items-center gap-3 font-sans text-[10px] uppercase tracking-[.25em] text-[#c7ff38]"><Zap className="h-3 w-3" /> Full-stack engineer / India</motion.p>
-            <motion.h1 initial={{ opacity: 0, y: 45 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .9, ease: [0.22, 1, 0.36, 1] }} className="max-w-4xl text-[clamp(4rem,9vw,9rem)] font-semibold leading-[.78] tracking-[-.085em]">
+            <motion.h1 initial={{ opacity: 0, y: 45 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .9, ease: [0.22, 1, 0.36, 1] }} className="max-w-4xl font-[family-name:var(--font-geist-sans)] text-[clamp(4rem,9vw,9rem)] font-semibold leading-[.78] tracking-[-.085em]">
               I BUILD
               <span className="block text-white/25">SYSTEMS</span>
               <span className="block">THAT <em className="font-serif font-normal text-[#c7ff38]">ship.</em></span>
             </motion.h1>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .7 }} className="mt-10 flex max-w-2xl flex-col gap-7 sm:flex-row sm:items-end sm:justify-between">
-              <p className="max-w-md text-sm leading-6 text-white/50 sm:text-base">Java-first full-stack developer engineering secure backends, sharp interfaces, and production infrastructure—end to end.</p>
+              <p className="max-w-md text-sm leading-6 text-white/50 sm:text-base">Java-first full-stack developer engineering secure backends, sharp interfaces, and production infrastructure from end to end.</p>
               <a href="#work" className="group flex shrink-0 items-center gap-3 font-sans text-[10px] uppercase tracking-[.18em] text-white"><span className="grid h-11 w-11 place-items-center rounded-full border border-white/15 transition group-hover:border-[#c7ff38] group-hover:bg-[#c7ff38] group-hover:text-black"><ArrowDown className="h-4 w-4" /></span> Explore work</a>
             </motion.div>
           </div>
@@ -143,7 +143,7 @@ export function PortfolioExperience() {
         </div>
 
         <section id="about" className="mx-auto max-w-360 px-5 py-28 lg:px-12 lg:py-40">
-          <Reveal><div className="mb-16 grid gap-8 lg:grid-cols-2"><p className="font-sans text-[10px] uppercase tracking-[.22em] text-[#c7ff38]">[ 01 — PROFILE ]</p><h2 className="text-4xl font-medium leading-[1.05] tracking-[-.05em] sm:text-6xl">Not just writing code.<br /><span className="text-white/30">Owning the outcome.</span></h2></div></Reveal>
+          <Reveal><div className="mb-16 grid gap-8 lg:grid-cols-2"><p className="font-sans text-[10px] uppercase tracking-[.22em] text-[#c7ff38]">[ 01 / PROFILE ]</p><h2 className="text-4xl font-medium leading-[1.05] tracking-[-.05em] sm:text-6xl">Not just writing code.<br /><span className="text-white/30">Owning the outcome.</span></h2></div></Reveal>
           <div className="grid gap-4 md:grid-cols-12">
             <Reveal className="md:col-span-7"><div className="relative flex h-full flex-col overflow-hidden rounded-4xl border border-white/10 bg-white/[.035] p-7 sm:min-h-80 sm:p-10"><p className="relative z-10 max-w-xl text-xl leading-relaxed tracking-[-.025em] text-white/75 sm:text-2xl">I work across the stack because great products break at the seams. From database design and authentication to interaction details and production deployment, I connect the whole system.</p><div className="relative z-10 mt-10 flex flex-wrap gap-2 sm:absolute sm:bottom-8 sm:left-8 sm:mt-0">{["Architecture", "API design", "Interface craft", "Deployment"].map(x => <span key={x} className="rounded-full border border-white/10 px-3 py-2 font-sans text-[9px] uppercase tracking-wider text-white/45">{x}</span>)}</div><div className="absolute -bottom-20 -right-20 h-64 w-64 rounded-full bg-[#c7ff38]/10 blur-3xl" /></div></Reveal>
             <Reveal className="md:col-span-5"><div className="grid h-full grid-cols-1 gap-4 sm:grid-cols-2"><div className="rounded-4xl border border-white/10 bg-[#c7ff38] p-6 text-black"><p className="font-sans text-[9px] uppercase tracking-widest">Primary runtime</p><p className="mt-14 text-5xl font-semibold tracking-[-.06em]">Java<span className="text-black/35">21</span></p></div><div className="rounded-4xl border border-white/10 bg-white/[.035] p-6"><p className="font-sans text-[9px] uppercase tracking-widest text-white/35">Current role</p><p className="mt-14 text-xl font-medium">Web Developer</p><p className="mt-1 text-xs text-white/40">UP24Network</p></div><div className="flex items-center justify-between rounded-4xl border border-white/10 bg-white/[.035] p-6 sm:col-span-2"><div><p className="font-sans text-[9px] uppercase tracking-widest text-white/35">Location</p><p className="mt-2 flex items-center gap-2 text-lg"><MapPin className="h-4 w-4 text-[#c7ff38]" /> India / Remote</p></div><Image src="/pfp.jpg" width={72} height={72} alt="Vivek Nigam" className="h-16 w-16 rounded-full border border-white/15 object-cover grayscale transition hover:grayscale-0" /></div></div></Reveal>
@@ -152,7 +152,7 @@ export function PortfolioExperience() {
 
         <section id="work" className="border-t border-white/10 py-28 lg:py-40">
           <div className="mx-auto max-w-360 px-5 lg:px-12">
-            <Reveal><div className="mb-16 flex items-end justify-between"><div><p className="mb-5 font-sans text-[10px] uppercase tracking-[.22em] text-[#c7ff38]">[ 02 — SELECTED WORK ]</p><h2 className="text-5xl font-medium tracking-[-.06em] sm:text-7xl">Proof, not promises.</h2></div><span className="hidden font-sans text-[10px] text-white/25 sm:block">04 PRODUCTION BUILDS</span></div></Reveal>
+            <Reveal><div className="mb-16 flex items-end justify-between"><div><p className="mb-5 font-sans text-[10px] uppercase tracking-[.22em] text-[#c7ff38]">[ 02 / SELECTED WORK ]</p><h2 className="text-5xl font-medium tracking-[-.06em] sm:text-7xl">Proof, not promises.</h2></div><span className="hidden font-sans text-[10px] text-white/25 sm:block">04 PRODUCTION BUILDS</span></div></Reveal>
             <div className="space-y-4">
               {projects.map((project) => (
                 <Reveal key={project.title}>
@@ -183,7 +183,7 @@ export function PortfolioExperience() {
         </section>
 
         <section id="experience" className="mx-auto grid max-w-360 gap-12 px-5 py-28 lg:grid-cols-[.7fr_1.3fr] lg:px-12 lg:py-40">
-          <Reveal><div className="lg:sticky lg:top-28"><p className="mb-5 font-sans text-[10px] uppercase tracking-[.22em] text-[#c7ff38]">[ 03 — EXPERIENCE ]</p><h2 className="text-5xl font-medium tracking-[-.06em]">Field<br />notes.</h2></div></Reveal>
+          <Reveal><div className="lg:sticky lg:top-28"><p className="mb-5 font-sans text-[10px] uppercase tracking-[.22em] text-[#c7ff38]">[ 03 / EXPERIENCE ]</p><h2 className="text-5xl font-medium tracking-[-.06em]">Field<br />notes.</h2></div></Reveal>
           <div className="relative pl-10">
             <div className="absolute bottom-10 left-1.75 top-10 w-px bg-white/10">
               <motion.div initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }} className="h-full w-px origin-top bg-linear-to-b from-[#c7ff38] via-[#c7ff38]/60 to-[#c7ff38]/20" />
@@ -204,7 +204,7 @@ export function PortfolioExperience() {
 
         <section id="contact" className="border-t border-white/10">
           <div className="mx-auto grid max-w-360 gap-12 px-5 py-28 lg:grid-cols-[.8fr_1.2fr] lg:px-12 lg:py-40">
-            <Reveal><div><p className="mb-6 font-sans text-[10px] uppercase tracking-[.22em] text-[#c7ff38]">[ 04 — CONTACT ]</p><h2 className="text-6xl font-semibold leading-[.85] tracking-[-.075em] sm:text-8xl">LET&apos;S<br /><span className="font-sans font-semibold text-white/25">make</span><br />IMPACT.</h2><a href="mailto:vivekgotstack@gmail.com" className="mt-9 inline-flex items-center gap-3 border-b border-[#c7ff38]/40 pb-2 text-sm text-[#c7ff38]">vivekgotstack@gmail.com <MoveRight className="h-4 w-4" /></a></div></Reveal>
+            <Reveal><div><p className="mb-6 font-sans text-[10px] uppercase tracking-[.22em] text-[#c7ff38]">[ 04 / CONTACT ]</p><h2 className="text-6xl font-semibold leading-[.85] tracking-[-.075em] sm:text-8xl">LET&apos;S<br /><span className="font-sans font-semibold text-white/25">make</span><br />IMPACT.</h2><a href="mailto:vivekgotstack@gmail.com" className="mt-9 inline-flex items-center gap-3 border-b border-[#c7ff38]/40 pb-2 text-sm text-[#c7ff38]">vivekgotstack@gmail.com <MoveRight className="h-4 w-4" /></a></div></Reveal>
             <Reveal><ContactForm /></Reveal>
           </div>
         </section>
